@@ -1,0 +1,47 @@
+[
+  {
+    "id": "svc-warranty-extended",
+    "name": "Extended Warranty",
+    "category": "warranty",
+    "description": "Extend your coverage beyond the manufacturer warranty for parts, labor, and roadside assistance for up to 5 additional years.",
+    "priceFrom": 899,
+    "currency": "USD",
+    "durationEstimate": "Coverage up to 5 years"
+  },
+  {
+    "id": "svc-maintenance-plan",
+    "name": "Scheduled Maintenance Plan",
+    "category": "maintenance",
+    "description": "Routine oil changes, tire rotations, brake inspections, and multi-point checks performed by certified technicians near you.",
+    "priceFrom": 149,
+    "currency": "USD",
+    "durationEstimate": "Per visit, ~1-2 hours"
+  },
+  {
+    "id": "svc-insurance-basic",
+    "name": "Auto Insurance — Basic Coverage",
+    "category": "insurance",
+    "description": "Liability, collision, and comprehensive coverage tailored to your vehicle and driving history, with flexible monthly payments.",
+    "priceFrom": 89,
+    "currency": "USD",
+    "durationEstimate": "Monthly premium"
+  },
+  {
+    "id": "svc-insurance-premium",
+    "name": "Auto Insurance — Premium Coverage",
+    "category": "insurance",
+    "description": "Full coverage including roadside assistance, rental reimbursement, and zero-depreciation protection for newer vehicles.",
+    "priceFrom": 159,
+    "currency": "USD",
+    "durationEstimate": "Monthly premium"
+  },
+  {
+    "id": "svc-detailing-full",
+    "name": "Full Detailing & Paint Protection",
+    "category": "detailing",
+    "description": "Interior deep clean, paint correction, and ceramic coating application to keep your dream car looking new for years.",
+    "priceFrom": 349,
+    "currency": "USD",
+    "durationEstimate": "Half-day service"
+  }
+]
