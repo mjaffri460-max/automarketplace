@@ -1,0 +1,62 @@
+[
+  {
+    "id": "faq-shipping",
+    "question": "How does shipping work?",
+    "keywords": ["ship", "shipping", "deliver", "delivery", "arrive", "long", "days"],
+    "answer": "Once you place an order, we arrange shipping to your address (or a nearby AutoMarketplace hub if you prefer to pick it up). Each listing shows an estimated delivery time and shipping cost before you order — most vehicles arrive within 5-10 days."
+  },
+  {
+    "id": "faq-pricing",
+    "question": "How do I know I'm getting the best price?",
+    "keywords": ["price", "cheap", "cheaper", "cost", "best price", "deal", "expensive"],
+    "answer": "Every car listing shows a price comparison against other major marketplaces, so you can see exactly how much you're saving. We aim to always show the best available market price."
+  },
+  {
+    "id": "faq-warranty",
+    "question": "Can I get a warranty?",
+    "keywords": ["warranty", "guarantee", "coverage", "protect"],
+    "answer": "Yes! Visit the Services page to book an extended warranty for your vehicle — coverage plans go up to 5 additional years beyond the manufacturer warranty."
+  },
+  {
+    "id": "faq-insurance",
+    "question": "Do you offer insurance?",
+    "keywords": ["insurance", "insure", "premium", "policy"],
+    "answer": "We do — head to the Services page to compare our Basic and Premium auto insurance coverage and get a monthly rate."
+  },
+  {
+    "id": "faq-maintenance",
+    "question": "How do I book maintenance?",
+    "keywords": ["maintenance", "service", "oil change", "repair", "tune up", "book"],
+    "answer": "You can book scheduled maintenance, detailing, or any other service from the Services page — just pick a service, choose a date, and submit the booking form."
+  },
+  {
+    "id": "faq-order",
+    "question": "How do I order a car?",
+    "keywords": ["order", "buy", "purchase", "checkout", "how do i get"],
+    "answer": "Browse or search for a vehicle, open its detail page, and click 'Order & Ship This Car'. You'll enter your shipping details and we'll confirm the order right away — no account or login required."
+  },
+  {
+    "id": "faq-dealer",
+    "question": "Can I meet a dealer in person?",
+    "keywords": ["dealer", "meet", "in person", "pickup", "hub", "nearby", "location"],
+    "answer": "Yes — check the Find a Dealer page for certified AutoMarketplace hubs near you where you can pick up your vehicle, get an inspection, or drop in for service."
+  },
+  {
+    "id": "faq-motorcycle",
+    "question": "Do you sell motorcycles too?",
+    "keywords": ["motorcycle", "dirt bike", "jet ski", "bike", "powersport"],
+    "answer": "We do! Visit the Powersports page to browse motorcycles, dirt bikes, and jet skis available for order and shipping."
+  },
+  {
+    "id": "faq-jobs",
+    "question": "Are you hiring?",
+    "keywords": ["job", "career", "hiring", "work here", "apply", "employment"],
+    "answer": "We're growing! Check out the Careers page for open roles across engineering, operations, customer experience, and more."
+  },
+  {
+    "id": "faq-contact",
+    "question": "How do I contact support?",
+    "keywords": ["contact", "support", "help", "human", "representative", "email", "phone"],
+    "answer": "You can reach our team anytime through the Contact page, and we'll get back to you as soon as possible."
+  }
+]

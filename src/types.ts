@@ -4,12 +4,27 @@ export type Transmission = "automatic" | "manual";
 
 export type CarCondition = "new" | "used" | "certified-pre-owned";
 
+export type CarCategory =
+  | "sedan"
+  | "suv"
+  | "truck"
+  | "sports-car"
+  | "luxury"
+  | "electric"
+  | "hatchback";
+
+export interface CompetitorPrice {
+  siteName: string;
+  price: number;
+}
+
 export interface Car {
   id: string;
   make: string;
   model: string;
   year: number;
   trim?: string;
+  category: CarCategory;
   price: number;
   currency: string;
   condition: CarCondition;
@@ -18,19 +33,53 @@ export interface Car {
   transmission: Transmission;
   color: string;
   location: string;
+  country: string;
   imageUrl: string;
   images: string[];
   description: string;
   features: string[];
   estimatedShippingDays: number;
   shippingCost: number;
+  competitorPrices: CompetitorPrice[];
 }
 
 export interface CarFilters {
   make?: string;
+  category?: CarCategory;
   condition?: CarCondition;
+  country?: string;
   minPrice?: number;
   maxPrice?: number;
+  query?: string;
+}
+
+export type PowersportType = "motorcycle" | "dirt-bike" | "jet-ski";
+
+export interface Powersport {
+  id: string;
+  type: PowersportType;
+  make: string;
+  model: string;
+  year: number;
+  price: number;
+  currency: string;
+  condition: CarCondition;
+  mileage: number;
+  engineSize: string;
+  color: string;
+  location: string;
+  country: string;
+  imageUrl: string;
+  images: string[];
+  description: string;
+  features: string[];
+  estimatedShippingDays: number;
+  shippingCost: number;
+  competitorPrices: CompetitorPrice[];
+}
+
+export interface PowersportFilters {
+  type?: PowersportType;
   query?: string;
 }
 
@@ -76,15 +125,15 @@ export interface ShippingAddress {
 }
 
 export interface OrderRequest {
-  carId: string;
+  vehicleId: string;
   shippingAddress: ShippingAddress;
   notes?: string;
 }
 
 export interface OrderConfirmation {
   orderId: string;
-  carId: string;
-  carSummary: string;
+  vehicleId: string;
+  vehicleSummary: string;
   totalPrice: number;
   currency: string;
   estimatedDeliveryDays: number;
@@ -96,4 +145,57 @@ export interface ContactMessage {
   email: string;
   subject: string;
   message: string;
+}
+
+export interface ShippingCountry {
+  code: string;
+  name: string;
+  lat: number;
+  lng: number;
+}
+
+export interface ShippingCountryAvailability extends ShippingCountry {
+  availableVehicles: number;
+}
+
+export interface Dealer {
+  id: string;
+  name: string;
+  city: string;
+  country: string;
+  address: string;
+  lat: number;
+  lng: number;
+  phone: string;
+  servicesOffered: string[];
+}
+
+export type EmploymentType = "full-time" | "part-time" | "contract";
+
+export interface JobListing {
+  id: string;
+  title: string;
+  department: string;
+  location: string;
+  employmentType: EmploymentType;
+  description: string;
+  requirements: string[];
+}
+
+export interface Review {
+  id: string;
+  authorName: string;
+  location: string;
+  rating: number;
+  title: string;
+  body: string;
+  vehiclePurchased?: string;
+  date: string;
+}
+
+export interface FaqEntry {
+  id: string;
+  question: string;
+  keywords: string[];
+  answer: string;
 }

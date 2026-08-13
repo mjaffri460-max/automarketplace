@@ -1,0 +1,182 @@
+[
+  {
+    "id": "review-001",
+    "authorName": "Karen M.",
+    "location": "Denver, CO",
+    "rating": 5,
+    "title": "So easy, even for someone like me",
+    "body": "I'm 68 and was nervous about buying a car online, but the whole site was simple to use. Big buttons, clear prices, and a real person called me to confirm everything. My Land Cruiser arrived exactly when they said it would.",
+    "vehiclePurchased": "Toyota Land Cruiser",
+    "date": "2026-03-14"
+  },
+  {
+    "id": "review-002",
+    "authorName": "Jordan T.",
+    "location": "Austin, TX",
+    "rating": 5,
+    "title": "Got my first car and it was way cheaper here",
+    "body": "Compared the same Civic on two other sites and this was $1,400 less including shipping. Ordering took maybe 10 minutes. Would recommend to any first-time buyer.",
+    "vehiclePurchased": "Honda Civic",
+    "date": "2026-02-02"
+  },
+  {
+    "id": "review-003",
+    "authorName": "Priya S.",
+    "location": "Toronto, ON",
+    "rating": 4,
+    "title": "Great experience, shipping took a bit longer",
+    "body": "The car itself was exactly as described and the price comparison feature genuinely convinced me this was the best deal available. Shipping ran about 3 days past the estimate, but customer support kept me updated the whole time.",
+    "vehiclePurchased": "BMW 5 Series",
+    "date": "2026-01-20"
+  },
+  {
+    "id": "review-004",
+    "authorName": "Marcus L.",
+    "location": "Miami, FL",
+    "rating": 5,
+    "title": "Warranty booking saved me a headache",
+    "body": "Booked an extended warranty right after my order and it took two minutes. A month later I actually needed it and the process to file a claim was painless.",
+    "vehiclePurchased": "Ford Mustang GT",
+    "date": "2025-12-11"
+  },
+  {
+    "id": "review-005",
+    "authorName": "Elena R.",
+    "location": "Berlin, Germany",
+    "rating": 5,
+    "title": "Shipped internationally without a hitch",
+    "body": "I found a car listed in the US that I couldn't get anywhere in Germany. The shipping tracker and customs paperwork support made the whole cross-border process much less intimidating than I expected.",
+    "vehiclePurchased": "Tesla Model 3",
+    "date": "2025-11-28"
+  },
+  {
+    "id": "review-006",
+    "authorName": "Robert H.",
+    "location": "Phoenix, AZ",
+    "rating": 5,
+    "title": "Finally, a car site my dad can actually use",
+    "body": "I bought this for my father who isn't great with technology. He said it was the easiest online purchase he's ever made — clear steps, big text, no confusing jargon.",
+    "vehiclePurchased": "Honda CR-V",
+    "date": "2025-11-02"
+  },
+  {
+    "id": "review-007",
+    "authorName": "Sofia G.",
+    "location": "Madrid, Spain",
+    "rating": 4,
+    "title": "Great motorcycle selection too",
+    "body": "Didn't expect to find motorcycles here but ended up ordering a Ducati. Photos and specs were accurate. Only wish there were more color options listed.",
+    "vehiclePurchased": "Ducati Panigale V4",
+    "date": "2025-10-19"
+  },
+  {
+    "id": "review-008",
+    "authorName": "David K.",
+    "location": "Seoul, South Korea",
+    "rating": 5,
+    "title": "Best price, hands down",
+    "body": "I checked three other marketplaces before buying and AutoMarketplace was genuinely the cheapest for the exact same trim, even after shipping. The savings breakdown on the listing page made the decision easy.",
+    "vehiclePurchased": "Hyundai Santa Fe",
+    "date": "2025-09-30"
+  },
+  {
+    "id": "review-009",
+    "authorName": "Amelia W.",
+    "location": "London, UK",
+    "rating": 5,
+    "title": "Dealer hub pickup was seamless",
+    "body": "I opted to meet at the London delivery hub instead of home shipping and the whole handover took less than 30 minutes, including a full walkthrough.",
+    "vehiclePurchased": "Range Rover Sport",
+    "date": "2025-09-05"
+  },
+  {
+    "id": "review-010",
+    "authorName": "Tyler B.",
+    "location": "Vancouver, BC",
+    "rating": 4,
+    "title": "Jet ski arrived in great condition",
+    "body": "Wasn't sure about buying a jet ski sight unseen but it showed up exactly as pictured. Shipping crate was solid and well protected.",
+    "vehiclePurchased": "Sea-Doo GTX Limited",
+    "date": "2025-08-14"
+  },
+  {
+    "id": "review-011",
+    "authorName": "Nina P.",
+    "location": "Chicago, IL",
+    "rating": 5,
+    "title": "The AI help chat actually answered my questions",
+    "body": "Used the little chat bubble in the corner to ask about insurance options at 11pm and got a clear answer immediately instead of waiting for an email reply.",
+    "vehiclePurchased": "Kia Telluride",
+    "date": "2025-07-22"
+  },
+  {
+    "id": "review-012",
+    "authorName": "Hassan A.",
+    "location": "Dubai, UAE",
+    "rating": 5,
+    "title": "Luxury import made simple",
+    "body": "Ordered a Bentley from a listing in Germany and had it delivered to Dubai. The process felt as smooth as ordering something off a regular shopping site.",
+    "vehiclePurchased": "Bentley Continental GT",
+    "date": "2025-06-30"
+  },
+  {
+    "id": "review-013",
+    "authorName": "Grace L.",
+    "location": "Sydney, Australia",
+    "rating": 4,
+    "title": "Certified pre-owned deal was excellent",
+    "body": "Took advantage of the certified pre-owned promo banner and got a great deal on a lightly used SUV. Only minor issue was a slight delay getting the maintenance record.",
+    "vehiclePurchased": "Volvo XC90",
+    "date": "2025-05-17"
+  },
+  {
+    "id": "review-014",
+    "authorName": "Ben C.",
+    "location": "Amsterdam, Netherlands",
+    "rating": 5,
+    "title": "Dirt bike shopping made fun again",
+    "body": "Loved being able to compare a few dirt bikes side by side with real specs instead of digging through five different classifieds sites.",
+    "vehiclePurchased": "KTM 450 SX-F",
+    "date": "2025-04-09"
+  },
+  {
+    "id": "review-015",
+    "authorName": "Olivia F.",
+    "location": "Paris, France",
+    "rating": 5,
+    "title": "Careers page led me to a job I love",
+    "body": "Not just a review of the cars — I found my current job as a Customer Success rep through the careers page and it's been a great experience from both sides now.",
+    "vehiclePurchased": "Peugeot-adjacent import — Volkswagen Golf",
+    "date": "2025-03-02"
+  },
+  {
+    "id": "review-016",
+    "authorName": "Carlos M.",
+    "location": "Mexico City, Mexico",
+    "rating": 4,
+    "title": "Great value on an electric car",
+    "body": "EV options are hard to find affordably here, but I found a great deal on a Model Y with reasonable shipping costs to Mexico.",
+    "vehiclePurchased": "Tesla Model Y",
+    "date": "2025-02-11"
+  },
+  {
+    "id": "review-017",
+    "authorName": "Julia S.",
+    "location": "Zurich, Switzerland",
+    "rating": 5,
+    "title": "Reassuring for a nervous first-time buyer",
+    "body": "Everything from the reviews section to the transparent pricing made me feel confident I wasn't being overcharged. Very happy with my purchase.",
+    "vehiclePurchased": "Mini Cooper",
+    "date": "2025-01-25"
+  },
+  {
+    "id": "review-018",
+    "authorName": "Ahmed Y.",
+    "location": "Tokyo, Japan",
+    "rating": 5,
+    "title": "Truck arrived faster than estimated",
+    "body": "Ordering a full-size truck internationally felt risky but the shipment actually arrived two days ahead of schedule.",
+    "vehiclePurchased": "Ford F-150",
+    "date": "2024-12-19"
+  }
+]

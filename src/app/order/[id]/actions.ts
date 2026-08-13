@@ -3,9 +3,9 @@
 import { redirect } from "next/navigation";
 import { createOrder } from "@/data/orders";
 
-export async function placeOrder(carId: string, formData: FormData) {
+export async function placeOrder(vehicleId: string, formData: FormData) {
   const confirmation = await createOrder({
-    carId,
+    vehicleId,
     shippingAddress: {
       fullName: String(formData.get("fullName") ?? ""),
       addressLine1: String(formData.get("addressLine1") ?? ""),
@@ -20,5 +20,5 @@ export async function placeOrder(carId: string, formData: FormData) {
   });
 
   const query = new URLSearchParams({ orderId: confirmation.orderId }).toString();
-  redirect(`/order/${carId}?${query}`);
+  redirect(`/order/${vehicleId}?${query}`);
 }

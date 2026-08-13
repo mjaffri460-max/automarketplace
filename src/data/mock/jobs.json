@@ -1,0 +1,92 @@
+[
+  {
+    "id": "job-001",
+    "title": "Logistics & Shipping Coordinator",
+    "department": "Operations",
+    "location": "Miami, FL (Hybrid)",
+    "employmentType": "full-time",
+    "description": "Coordinate international vehicle shipping from purchase to doorstep delivery, working with carriers and customs partners to keep every order on schedule.",
+    "requirements": ["2+ years in logistics or freight coordination", "Comfortable working across time zones", "Strong attention to detail"]
+  },
+  {
+    "id": "job-002",
+    "title": "Vehicle Inspection Specialist",
+    "department": "Operations",
+    "location": "Los Angeles, CA",
+    "employmentType": "full-time",
+    "description": "Perform in-depth mechanical and cosmetic inspections on used and certified pre-owned vehicles before they're listed for sale.",
+    "requirements": ["ASE certification or equivalent experience", "Strong knowledge of vehicle mechanics", "Valid driver's license"]
+  },
+  {
+    "id": "job-003",
+    "title": "Customer Success Representative",
+    "department": "Customer Experience",
+    "location": "Remote",
+    "employmentType": "full-time",
+    "description": "Be the friendly, patient voice that helps customers of all ages and experience levels through browsing, ordering, and post-delivery support.",
+    "requirements": ["Excellent written and verbal communication", "Patience explaining technical details simply", "Prior customer support experience preferred"]
+  },
+  {
+    "id": "job-004",
+    "title": "Frontend Software Engineer",
+    "department": "Engineering",
+    "location": "Remote",
+    "employmentType": "full-time",
+    "description": "Help build and improve the AutoMarketplace website — from browsing and checkout flows to the tools our internal team uses every day.",
+    "requirements": ["Experience with React and TypeScript", "Eye for clean, accessible UI", "Comfortable working in a fast-moving startup"]
+  },
+  {
+    "id": "job-005",
+    "title": "Warranty & Insurance Claims Specialist",
+    "department": "Customer Experience",
+    "location": "Chicago, IL",
+    "employmentType": "full-time",
+    "description": "Process and support warranty, maintenance, and insurance service requests, making sure customers get fast, clear answers.",
+    "requirements": ["Experience with claims or insurance processing", "Strong organizational skills", "Comfortable with high call/email volume"]
+  },
+  {
+    "id": "job-006",
+    "title": "Dealer Relations Manager",
+    "department": "Partnerships",
+    "location": "Dallas, TX",
+    "employmentType": "full-time",
+    "description": "Build and manage relationships with certified dealer hubs around the world to keep our delivery and meet-up network growing.",
+    "requirements": ["3+ years in partnerships, sales, or account management", "Willingness to travel occasionally", "Strong negotiation skills"]
+  },
+  {
+    "id": "job-007",
+    "title": "Marketing Specialist — Growth",
+    "department": "Marketing",
+    "location": "Remote",
+    "employmentType": "full-time",
+    "description": "Craft campaigns that help first-time buyers and seasoned car enthusiasts alike discover AutoMarketplace and find their dream car.",
+    "requirements": ["Experience in digital marketing or growth", "Comfortable with data-driven decision making", "Strong copywriting skills"]
+  },
+  {
+    "id": "job-008",
+    "title": "Data Analyst — Pricing",
+    "department": "Analytics",
+    "location": "Remote",
+    "employmentType": "full-time",
+    "description": "Analyze market pricing trends across regions to make sure our listings always offer the best value compared to other marketplaces.",
+    "requirements": ["Experience with SQL and spreadsheet modeling", "Strong analytical mindset", "Automotive industry knowledge a plus"]
+  },
+  {
+    "id": "job-009",
+    "title": "Sales Consultant (Part-Time)",
+    "department": "Sales",
+    "location": "Miami, FL",
+    "employmentType": "part-time",
+    "description": "Guide customers at our delivery hub through final vehicle walkthroughs, answering questions and making sure pickup day feels great.",
+    "requirements": ["Friendly, approachable communication style", "Basic vehicle knowledge", "Weekend availability"]
+  },
+  {
+    "id": "job-010",
+    "title": "Detailing & Reconditioning Technician",
+    "department": "Operations",
+    "location": "Toronto, ON",
+    "employmentType": "contract",
+    "description": "Prepare vehicles for delivery with full interior and exterior detailing, paint correction, and light reconditioning work.",
+    "requirements": ["Prior auto detailing experience", "Attention to detail", "Ability to work independently"]
+  }
+]

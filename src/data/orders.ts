@@ -1,19 +1,22 @@
 import { getCar } from "./cars";
+import { getPowersport } from "./powersports";
 import type { OrderRequest, OrderConfirmation } from "@/types";
 
 export async function createOrder(request: OrderRequest): Promise<OrderConfirmation> {
-  const car = await getCar(request.carId);
-  if (!car) {
-    throw new Error(`Car not found: ${request.carId}`);
+  const car = await getCar(request.vehicleId);
+  const vehicle = car ?? (await getPowersport(request.vehicleId));
+
+  if (!vehicle) {
+    throw new Error(`Vehicle not found: ${request.vehicleId}`);
   }
 
   return {
     orderId: `ord-${Date.now()}`,
-    carId: car.id,
-    carSummary: `${car.year} ${car.make} ${car.model}`,
-    totalPrice: car.price + car.shippingCost,
-    currency: car.currency,
-    estimatedDeliveryDays: car.estimatedShippingDays,
+    vehicleId: vehicle.id,
+    vehicleSummary: `${vehicle.year} ${vehicle.make} ${vehicle.model}`,
+    totalPrice: vehicle.price + vehicle.shippingCost,
+    currency: vehicle.currency,
+    estimatedDeliveryDays: vehicle.estimatedShippingDays,
     status: "pending",
   };
 }

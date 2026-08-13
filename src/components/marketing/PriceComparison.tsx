@@ -1,0 +1,49 @@
+import { Badge } from "@/components/ui/badge";
+import type { CompetitorPrice } from "@/types";
+
+interface PriceComparisonProps {
+  ourPrice: number;
+  competitorPrices: CompetitorPrice[];
+}
+
+export function PriceComparison({ ourPrice, competitorPrices }: PriceComparisonProps) {
+  if (competitorPrices.length === 0) return null;
+
+  const cheapestCompetitor = Math.min(...competitorPrices.map((c) => c.price));
+  const savings = cheapestCompetitor - ourPrice;
+  const rows = [{ siteName: "AutoMarketplace", price: ourPrice, isUs: true }, ...competitorPrices.map((c) => ({ ...c, isUs: false }))].sort(
+    (a, b) => a.price - b.price
+  );
+
+  return (
+    <div className="rounded-xl border bg-white p-6">
+      <div className="flex items-center justify-between">
+        <p className="text-lg font-semibold text-slate-900">Price Comparison</p>
+        {savings > 0 && <Badge className="bg-emerald-100 text-emerald-800">Best Price</Badge>}
+      </div>
+      {savings > 0 && (
+        <p className="mt-1 text-sm text-emerald-700">
+          You save up to ${savings.toLocaleString()} compared to other marketplaces.
+        </p>
+      )}
+
+      <ul className="mt-4 space-y-2">
+        {rows.map((row) => (
+          <li
+            key={row.siteName}
+            className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm ${
+              row.isUs ? "bg-slate-900 text-white" : "bg-slate-50 text-slate-700"
+            }`}
+          >
+            <span className="font-medium">{row.siteName}</span>
+            <span className="font-semibold">${row.price.toLocaleString()}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p className="mt-3 text-xs text-slate-500">
+        Other marketplace prices are estimated averages for comparable listings and may vary.
+      </p>
+    </div>
+  );
+}

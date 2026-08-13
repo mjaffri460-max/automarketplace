@@ -1,0 +1,1292 @@
+[
+  {
+    "id": "ps-001",
+    "type": "motorcycle",
+    "make": "BMW",
+    "model": "R 1250 GS",
+    "year": 2021,
+    "price": 22000,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 7300,
+    "engineSize": "788cc",
+    "color": "Champagne Gold",
+    "location": "Tokyo",
+    "country": "Japan",
+    "imageUrl": "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2021 BMW R 1250 GS is in great condition and ready to ride. Located in Tokyo, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Quickshifter",
+      "Heated Grips",
+      "Slipper Clutch",
+      "Traction Control"
+    ],
+    "estimatedShippingDays": 9,
+    "shippingCost": 550,
+    "competitorPrices": [
+      {
+        "siteName": "TrueCar",
+        "price": 23100
+      },
+      {
+        "siteName": "Vroom",
+        "price": 24850
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 23300
+      }
+    ]
+  },
+  {
+    "id": "ps-002",
+    "type": "motorcycle",
+    "make": "Harley-Davidson",
+    "model": "Street Glide",
+    "year": 2023,
+    "price": 27750,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 1778,
+    "engineSize": "796cc",
+    "color": "Alpine White",
+    "location": "Seoul",
+    "country": "South Korea",
+    "imageUrl": "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2023 Harley-Davidson Street Glide is in great condition and ready to ride. Located in Seoul, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Traction Control",
+      "Cruise Control",
+      "ABS Brakes",
+      "Slipper Clutch"
+    ],
+    "estimatedShippingDays": 8,
+    "shippingCost": 700,
+    "competitorPrices": [
+      {
+        "siteName": "AutoTrader",
+        "price": 31650
+      },
+      {
+        "siteName": "CarMax",
+        "price": 28850
+      },
+      {
+        "siteName": "Vroom",
+        "price": 29700
+      }
+    ]
+  },
+  {
+    "id": "ps-003",
+    "type": "motorcycle",
+    "make": "Suzuki",
+    "model": "GSX-R750",
+    "year": 2024,
+    "price": 16000,
+    "currency": "USD",
+    "condition": "new",
+    "mileage": 39,
+    "engineSize": "860cc",
+    "color": "Jet Black",
+    "location": "London",
+    "country": "United Kingdom",
+    "imageUrl": "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2024 Suzuki GSX-R750 is brand new and ready for delivery. Located in London, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Quickshifter",
+      "Ride Modes",
+      "Cruise Control",
+      "LED Lighting"
+    ],
+    "estimatedShippingDays": 5,
+    "shippingCost": 500,
+    "competitorPrices": [
+      {
+        "siteName": "AutoTrader",
+        "price": 17100
+      },
+      {
+        "siteName": "Carvana",
+        "price": 17100
+      },
+      {
+        "siteName": "CarMax",
+        "price": 18250
+      }
+    ]
+  },
+  {
+    "id": "ps-004",
+    "type": "motorcycle",
+    "make": "BMW",
+    "model": "R 1250 GS",
+    "year": 2022,
+    "price": 22950,
+    "currency": "USD",
+    "condition": "certified-pre-owned",
+    "mileage": 3616,
+    "engineSize": "1222cc",
+    "color": "Alpine White",
+    "location": "Osaka",
+    "country": "Japan",
+    "imageUrl": "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2022 BMW R 1250 GS is certified pre-owned with a full inspection report. Located in Osaka, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Ride Modes",
+      "ABS Brakes",
+      "Cruise Control",
+      "Heated Grips"
+    ],
+    "estimatedShippingDays": 3,
+    "shippingCost": 400,
+    "competitorPrices": [
+      {
+        "siteName": "CarGurus",
+        "price": 25700
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 26400
+      },
+      {
+        "siteName": "Carvana",
+        "price": 25000
+      }
+    ]
+  },
+  {
+    "id": "ps-005",
+    "type": "motorcycle",
+    "make": "Yamaha",
+    "model": "MT-07",
+    "year": 2018,
+    "price": 8650,
+    "currency": "USD",
+    "condition": "certified-pre-owned",
+    "mileage": 7020,
+    "engineSize": "1189cc",
+    "color": "Champagne Gold",
+    "location": "Barcelona",
+    "country": "Spain",
+    "imageUrl": "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2018 Yamaha MT-07 is certified pre-owned with a full inspection report. Located in Barcelona, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Quickshifter",
+      "ABS Brakes",
+      "Ride Modes",
+      "Cruise Control"
+    ],
+    "estimatedShippingDays": 6,
+    "shippingCost": 850,
+    "competitorPrices": [
+      {
+        "siteName": "CarMax",
+        "price": 9850
+      },
+      {
+        "siteName": "CarGurus",
+        "price": 9700
+      },
+      {
+        "siteName": "Vroom",
+        "price": 9500
+      }
+    ]
+  },
+  {
+    "id": "ps-006",
+    "type": "motorcycle",
+    "make": "Triumph",
+    "model": "Street Triple",
+    "year": 2025,
+    "price": 12700,
+    "currency": "USD",
+    "condition": "new",
+    "mileage": 28,
+    "engineSize": "1233cc",
+    "color": "Jet Black",
+    "location": "Paris",
+    "country": "France",
+    "imageUrl": "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2025 Triumph Street Triple is brand new and ready for delivery. Located in Paris, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Heated Grips",
+      "Quickshifter",
+      "Cruise Control",
+      "Slipper Clutch"
+    ],
+    "estimatedShippingDays": 6,
+    "shippingCost": 250,
+    "competitorPrices": [
+      {
+        "siteName": "CarGurus",
+        "price": 14500
+      },
+      {
+        "siteName": "CarMax",
+        "price": 13450
+      },
+      {
+        "siteName": "Vroom",
+        "price": 14500
+      }
+    ]
+  },
+  {
+    "id": "ps-007",
+    "type": "motorcycle",
+    "make": "Yamaha",
+    "model": "MT-07",
+    "year": 2018,
+    "price": 8600,
+    "currency": "USD",
+    "condition": "certified-pre-owned",
+    "mileage": 1516,
+    "engineSize": "1227cc",
+    "color": "Slate Blue",
+    "location": "Barcelona",
+    "country": "Spain",
+    "imageUrl": "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2018 Yamaha MT-07 is certified pre-owned with a full inspection report. Located in Barcelona, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Quickshifter",
+      "ABS Brakes",
+      "LED Lighting",
+      "Traction Control"
+    ],
+    "estimatedShippingDays": 9,
+    "shippingCost": 600,
+    "competitorPrices": [
+      {
+        "siteName": "TrueCar",
+        "price": 9050
+      },
+      {
+        "siteName": "Vroom",
+        "price": 10000
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 9350
+      }
+    ]
+  },
+  {
+    "id": "ps-008",
+    "type": "motorcycle",
+    "make": "Ducati",
+    "model": "Panigale V4",
+    "year": 2019,
+    "price": 24050,
+    "currency": "USD",
+    "condition": "certified-pre-owned",
+    "mileage": 4952,
+    "engineSize": "745cc",
+    "color": "Silver Metallic",
+    "location": "Paris",
+    "country": "France",
+    "imageUrl": "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2019 Ducati Panigale V4 is certified pre-owned with a full inspection report. Located in Paris, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "ABS Brakes",
+      "Quickshifter",
+      "LED Lighting",
+      "Ride Modes"
+    ],
+    "estimatedShippingDays": 3,
+    "shippingCost": 700,
+    "competitorPrices": [
+      {
+        "siteName": "CarMax",
+        "price": 25750
+      },
+      {
+        "siteName": "CarGurus",
+        "price": 26200
+      },
+      {
+        "siteName": "Carvana",
+        "price": 25500
+      }
+    ]
+  },
+  {
+    "id": "ps-009",
+    "type": "motorcycle",
+    "make": "Yamaha",
+    "model": "MT-07",
+    "year": 2024,
+    "price": 8800,
+    "currency": "USD",
+    "condition": "new",
+    "mileage": 38,
+    "engineSize": "1194cc",
+    "color": "British Racing Green",
+    "location": "Munich",
+    "country": "Germany",
+    "imageUrl": "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2024 Yamaha MT-07 is brand new and ready for delivery. Located in Munich, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Quickshifter",
+      "Ride Modes",
+      "LED Lighting",
+      "Slipper Clutch"
+    ],
+    "estimatedShippingDays": 4,
+    "shippingCost": 700,
+    "competitorPrices": [
+      {
+        "siteName": "AutoTrader",
+        "price": 9150
+      },
+      {
+        "siteName": "Carvana",
+        "price": 9600
+      },
+      {
+        "siteName": "TrueCar",
+        "price": 9150
+      }
+    ]
+  },
+  {
+    "id": "ps-010",
+    "type": "motorcycle",
+    "make": "Kawasaki",
+    "model": "Ninja ZX-6R",
+    "year": 2021,
+    "price": 13000,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 4999,
+    "engineSize": "979cc",
+    "color": "Midnight Blue",
+    "location": "Amsterdam",
+    "country": "Netherlands",
+    "imageUrl": "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2021 Kawasaki Ninja ZX-6R is in great condition and ready to ride. Located in Amsterdam, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Cruise Control",
+      "Quickshifter",
+      "ABS Brakes",
+      "Traction Control"
+    ],
+    "estimatedShippingDays": 10,
+    "shippingCost": 650,
+    "competitorPrices": [
+      {
+        "siteName": "CarMax",
+        "price": 13900
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 14800
+      },
+      {
+        "siteName": "CarGurus",
+        "price": 14050
+      }
+    ]
+  },
+  {
+    "id": "ps-011",
+    "type": "motorcycle",
+    "make": "BMW",
+    "model": "R 1250 GS",
+    "year": 2024,
+    "price": 23350,
+    "currency": "USD",
+    "condition": "new",
+    "mileage": 41,
+    "engineSize": "1158cc",
+    "color": "Pearl White",
+    "location": "Dubai",
+    "country": "United Arab Emirates",
+    "imageUrl": "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2024 BMW R 1250 GS is brand new and ready for delivery. Located in Dubai, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "LED Lighting",
+      "Cruise Control",
+      "Quickshifter",
+      "Heated Grips"
+    ],
+    "estimatedShippingDays": 5,
+    "shippingCost": 450,
+    "competitorPrices": [
+      {
+        "siteName": "TrueCar",
+        "price": 25900
+      },
+      {
+        "siteName": "CarGurus",
+        "price": 26400
+      },
+      {
+        "siteName": "Vroom",
+        "price": 25200
+      }
+    ]
+  },
+  {
+    "id": "ps-012",
+    "type": "motorcycle",
+    "make": "Yamaha",
+    "model": "MT-07",
+    "year": 2022,
+    "price": 8800,
+    "currency": "USD",
+    "condition": "certified-pre-owned",
+    "mileage": 1143,
+    "engineSize": "665cc",
+    "color": "Racing Red",
+    "location": "Amsterdam",
+    "country": "Netherlands",
+    "imageUrl": "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2022 Yamaha MT-07 is certified pre-owned with a full inspection report. Located in Amsterdam, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Ride Modes",
+      "Cruise Control",
+      "Quickshifter",
+      "ABS Brakes"
+    ],
+    "estimatedShippingDays": 5,
+    "shippingCost": 550,
+    "competitorPrices": [
+      {
+        "siteName": "TrueCar",
+        "price": 10100
+      },
+      {
+        "siteName": "CarGurus",
+        "price": 9150
+      },
+      {
+        "siteName": "CarMax",
+        "price": 9700
+      }
+    ]
+  },
+  {
+    "id": "ps-013",
+    "type": "motorcycle",
+    "make": "Suzuki",
+    "model": "GSX-R750",
+    "year": 2019,
+    "price": 14200,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 2394,
+    "engineSize": "686cc",
+    "color": "Racing Red",
+    "location": "Mexico City",
+    "country": "Mexico",
+    "imageUrl": "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2019 Suzuki GSX-R750 is in great condition and ready to ride. Located in Mexico City, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Cruise Control",
+      "Slipper Clutch",
+      "Heated Grips",
+      "Ride Modes"
+    ],
+    "estimatedShippingDays": 10,
+    "shippingCost": 350,
+    "competitorPrices": [
+      {
+        "siteName": "AutoTrader",
+        "price": 16350
+      },
+      {
+        "siteName": "Vroom",
+        "price": 15050
+      },
+      {
+        "siteName": "Carvana",
+        "price": 16450
+      }
+    ]
+  },
+  {
+    "id": "ps-014",
+    "type": "motorcycle",
+    "make": "Harley-Davidson",
+    "model": "Street Glide",
+    "year": 2022,
+    "price": 25750,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 516,
+    "engineSize": "1228cc",
+    "color": "Pearl White",
+    "location": "Manchester",
+    "country": "United Kingdom",
+    "imageUrl": "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1558975355-84703f540cf6?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1530925486883-d9da662d497c?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2022 Harley-Davidson Street Glide is in great condition and ready to ride. Located in Manchester, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Slipper Clutch",
+      "Heated Grips",
+      "Cruise Control",
+      "Traction Control"
+    ],
+    "estimatedShippingDays": 4,
+    "shippingCost": 650,
+    "competitorPrices": [
+      {
+        "siteName": "CarMax",
+        "price": 28850
+      },
+      {
+        "siteName": "Vroom",
+        "price": 29600
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 26800
+      }
+    ]
+  },
+  {
+    "id": "ps-015",
+    "type": "dirt-bike",
+    "make": "Kawasaki",
+    "model": "KX250",
+    "year": 2025,
+    "price": 8950,
+    "currency": "USD",
+    "condition": "new",
+    "mileage": 8,
+    "engineSize": "279cc",
+    "color": "Alpine White",
+    "location": "Melbourne",
+    "country": "Australia",
+    "imageUrl": "https://images.unsplash.com/photo-1568301125563-58d334d3fa64?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1568301125563-58d334d3fa64?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1619369321561-8e69104a2ebd?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2025 Kawasaki KX250 is brand new and ready for delivery. Located in Melbourne, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Off-Road Tires",
+      "Skid Plate",
+      "Adjustable Suspension",
+      "Aluminum Frame"
+    ],
+    "estimatedShippingDays": 8,
+    "shippingCost": 450,
+    "competitorPrices": [
+      {
+        "siteName": "CarGurus",
+        "price": 10400
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 9500
+      },
+      {
+        "siteName": "Vroom",
+        "price": 10300
+      }
+    ]
+  },
+  {
+    "id": "ps-016",
+    "type": "dirt-bike",
+    "make": "KTM",
+    "model": "450 SX-F",
+    "year": 2021,
+    "price": 10900,
+    "currency": "USD",
+    "condition": "certified-pre-owned",
+    "mileage": 5120,
+    "engineSize": "309cc",
+    "color": "British Racing Green",
+    "location": "Chicago, IL",
+    "country": "United States",
+    "imageUrl": "https://images.unsplash.com/photo-1619369321561-8e69104a2ebd?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1619369321561-8e69104a2ebd?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1637431124792-1b7a4b1fdccd?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2021 KTM 450 SX-F is certified pre-owned with a full inspection report. Located in Chicago, IL, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Off-Road Tires",
+      "Electric Start",
+      "Hydraulic Clutch",
+      "Adjustable Suspension"
+    ],
+    "estimatedShippingDays": 10,
+    "shippingCost": 850,
+    "competitorPrices": [
+      {
+        "siteName": "Carvana",
+        "price": 11750
+      },
+      {
+        "siteName": "CarMax",
+        "price": 11650
+      },
+      {
+        "siteName": "CarGurus",
+        "price": 12300
+      }
+    ]
+  },
+  {
+    "id": "ps-017",
+    "type": "dirt-bike",
+    "make": "Yamaha",
+    "model": "YZ250F",
+    "year": 2018,
+    "price": 8600,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 4702,
+    "engineSize": "268cc",
+    "color": "Alpine White",
+    "location": "Munich",
+    "country": "Germany",
+    "imageUrl": "https://images.unsplash.com/photo-1637431124792-1b7a4b1fdccd?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1637431124792-1b7a4b1fdccd?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1568301125563-58d334d3fa64?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2018 Yamaha YZ250F is in great condition and ready to ride. Located in Munich, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Off-Road Tires",
+      "Hydraulic Clutch",
+      "Aluminum Frame",
+      "Skid Plate"
+    ],
+    "estimatedShippingDays": 8,
+    "shippingCost": 450,
+    "competitorPrices": [
+      {
+        "siteName": "Carvana",
+        "price": 9650
+      },
+      {
+        "siteName": "CarMax",
+        "price": 9350
+      },
+      {
+        "siteName": "TrueCar",
+        "price": 9050
+      }
+    ]
+  },
+  {
+    "id": "ps-018",
+    "type": "dirt-bike",
+    "make": "Kawasaki",
+    "model": "KX250",
+    "year": 2025,
+    "price": 9000,
+    "currency": "USD",
+    "condition": "new",
+    "mileage": 24,
+    "engineSize": "293cc",
+    "color": "Pearl White",
+    "location": "Barcelona",
+    "country": "Spain",
+    "imageUrl": "https://images.unsplash.com/photo-1568301125563-58d334d3fa64?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1568301125563-58d334d3fa64?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1619369321561-8e69104a2ebd?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2025 Kawasaki KX250 is brand new and ready for delivery. Located in Barcelona, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Aluminum Frame",
+      "Hydraulic Clutch",
+      "Adjustable Suspension",
+      "Skid Plate"
+    ],
+    "estimatedShippingDays": 8,
+    "shippingCost": 750,
+    "competitorPrices": [
+      {
+        "siteName": "Vroom",
+        "price": 9450
+      },
+      {
+        "siteName": "TrueCar",
+        "price": 9700
+      },
+      {
+        "siteName": "Carvana",
+        "price": 9350
+      }
+    ]
+  },
+  {
+    "id": "ps-019",
+    "type": "dirt-bike",
+    "make": "KTM",
+    "model": "450 SX-F",
+    "year": 2022,
+    "price": 11300,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 2973,
+    "engineSize": "255cc",
+    "color": "British Racing Green",
+    "location": "Sydney",
+    "country": "Australia",
+    "imageUrl": "https://images.unsplash.com/photo-1619369321561-8e69104a2ebd?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1619369321561-8e69104a2ebd?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1637431124792-1b7a4b1fdccd?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2022 KTM 450 SX-F is in great condition and ready to ride. Located in Sydney, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Adjustable Suspension",
+      "Hydraulic Clutch",
+      "Electric Start",
+      "Off-Road Tires"
+    ],
+    "estimatedShippingDays": 9,
+    "shippingCost": 650,
+    "competitorPrices": [
+      {
+        "siteName": "CarGurus",
+        "price": 12300
+      },
+      {
+        "siteName": "CarMax",
+        "price": 11750
+      },
+      {
+        "siteName": "TrueCar",
+        "price": 12900
+      }
+    ]
+  },
+  {
+    "id": "ps-020",
+    "type": "dirt-bike",
+    "make": "Suzuki",
+    "model": "RM-Z450",
+    "year": 2025,
+    "price": 9650,
+    "currency": "USD",
+    "condition": "new",
+    "mileage": 26,
+    "engineSize": "386cc",
+    "color": "Pearl White",
+    "location": "Stockholm",
+    "country": "Sweden",
+    "imageUrl": "https://images.unsplash.com/photo-1637431124792-1b7a4b1fdccd?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1637431124792-1b7a4b1fdccd?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1568301125563-58d334d3fa64?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2025 Suzuki RM-Z450 is brand new and ready for delivery. Located in Stockholm, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Adjustable Suspension",
+      "Electric Start",
+      "Skid Plate",
+      "Hydraulic Clutch"
+    ],
+    "estimatedShippingDays": 5,
+    "shippingCost": 750,
+    "competitorPrices": [
+      {
+        "siteName": "CarGurus",
+        "price": 10400
+      },
+      {
+        "siteName": "Vroom",
+        "price": 10350
+      },
+      {
+        "siteName": "CarMax",
+        "price": 11000
+      }
+    ]
+  },
+  {
+    "id": "ps-021",
+    "type": "dirt-bike",
+    "make": "Yamaha",
+    "model": "YZ250F",
+    "year": 2024,
+    "price": 9200,
+    "currency": "USD",
+    "condition": "new",
+    "mileage": 26,
+    "engineSize": "332cc",
+    "color": "Slate Blue",
+    "location": "Berlin",
+    "country": "Germany",
+    "imageUrl": "https://images.unsplash.com/photo-1568301125563-58d334d3fa64?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1568301125563-58d334d3fa64?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1619369321561-8e69104a2ebd?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2024 Yamaha YZ250F is brand new and ready for delivery. Located in Berlin, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Adjustable Suspension",
+      "Off-Road Tires",
+      "Aluminum Frame",
+      "Electric Start"
+    ],
+    "estimatedShippingDays": 4,
+    "shippingCost": 550,
+    "competitorPrices": [
+      {
+        "siteName": "AutoTrader",
+        "price": 9650
+      },
+      {
+        "siteName": "CarMax",
+        "price": 10050
+      },
+      {
+        "siteName": "CarGurus",
+        "price": 10050
+      }
+    ]
+  },
+  {
+    "id": "ps-022",
+    "type": "dirt-bike",
+    "make": "KTM",
+    "model": "450 SX-F",
+    "year": 2024,
+    "price": 10800,
+    "currency": "USD",
+    "condition": "new",
+    "mileage": 8,
+    "engineSize": "273cc",
+    "color": "British Racing Green",
+    "location": "Barcelona",
+    "country": "Spain",
+    "imageUrl": "https://images.unsplash.com/photo-1619369321561-8e69104a2ebd?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1619369321561-8e69104a2ebd?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1637431124792-1b7a4b1fdccd?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2024 KTM 450 SX-F is brand new and ready for delivery. Located in Barcelona, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Adjustable Suspension",
+      "Electric Start",
+      "Skid Plate",
+      "Off-Road Tires"
+    ],
+    "estimatedShippingDays": 8,
+    "shippingCost": 450,
+    "competitorPrices": [
+      {
+        "siteName": "CarGurus",
+        "price": 11450
+      },
+      {
+        "siteName": "CarMax",
+        "price": 12550
+      },
+      {
+        "siteName": "Carvana",
+        "price": 11900
+      }
+    ]
+  },
+  {
+    "id": "ps-023",
+    "type": "jet-ski",
+    "make": "Sea-Doo",
+    "model": "Spark",
+    "year": 2019,
+    "price": 7550,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 3228,
+    "engineSize": "1430cc",
+    "color": "Jet Black",
+    "location": "Chicago, IL",
+    "country": "United States",
+    "imageUrl": "https://images.unsplash.com/photo-1755566981084-00c579a061a5?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1755566981084-00c579a061a5?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1671959160332-e963b2cd077c?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2019 Sea-Doo Spark is in great condition and ready to ride. Located in Chicago, IL, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Watertight Storage",
+      "iBR Braking",
+      "Reboarding Ladder",
+      "Bluetooth Audio"
+    ],
+    "estimatedShippingDays": 8,
+    "shippingCost": 750,
+    "competitorPrices": [
+      {
+        "siteName": "Carvana",
+        "price": 7950
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 7950
+      },
+      {
+        "siteName": "TrueCar",
+        "price": 8100
+      }
+    ]
+  },
+  {
+    "id": "ps-024",
+    "type": "jet-ski",
+    "make": "Sea-Doo",
+    "model": "GTX Limited",
+    "year": 2019,
+    "price": 18950,
+    "currency": "USD",
+    "condition": "certified-pre-owned",
+    "mileage": 7536,
+    "engineSize": "1346cc",
+    "color": "Champagne Gold",
+    "location": "Paris",
+    "country": "France",
+    "imageUrl": "https://images.unsplash.com/photo-1671959160332-e963b2cd077c?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1671959160332-e963b2cd077c?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1698009144286-454c9aa251b1?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2019 Sea-Doo GTX Limited is certified pre-owned with a full inspection report. Located in Paris, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Reboarding Ladder",
+      "Bluetooth Audio",
+      "Watertight Storage",
+      "Cruise Control"
+    ],
+    "estimatedShippingDays": 3,
+    "shippingCost": 750,
+    "competitorPrices": [
+      {
+        "siteName": "CarGurus",
+        "price": 20100
+      },
+      {
+        "siteName": "Carvana",
+        "price": 22000
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 19900
+      }
+    ]
+  },
+  {
+    "id": "ps-025",
+    "type": "jet-ski",
+    "make": "Sea-Doo",
+    "model": "Spark",
+    "year": 2018,
+    "price": 7700,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 7651,
+    "engineSize": "1460cc",
+    "color": "Midnight Blue",
+    "location": "Munich",
+    "country": "Germany",
+    "imageUrl": "https://images.unsplash.com/photo-1698009144286-454c9aa251b1?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1698009144286-454c9aa251b1?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1755566981084-00c579a061a5?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2018 Sea-Doo Spark is in great condition and ready to ride. Located in Munich, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Bluetooth Audio",
+      "Reboarding Ladder",
+      "iBR Braking",
+      "Watertight Storage"
+    ],
+    "estimatedShippingDays": 3,
+    "shippingCost": 300,
+    "competitorPrices": [
+      {
+        "siteName": "CarGurus",
+        "price": 8950
+      },
+      {
+        "siteName": "Carvana",
+        "price": 8700
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 8450
+      }
+    ]
+  },
+  {
+    "id": "ps-026",
+    "type": "jet-ski",
+    "make": "Kawasaki",
+    "model": "Jet Ski Ultra 310",
+    "year": 2018,
+    "price": 17600,
+    "currency": "USD",
+    "condition": "certified-pre-owned",
+    "mileage": 6670,
+    "engineSize": "1231cc",
+    "color": "Pearl White",
+    "location": "Manchester",
+    "country": "United Kingdom",
+    "imageUrl": "https://images.unsplash.com/photo-1755566981084-00c579a061a5?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1755566981084-00c579a061a5?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1671959160332-e963b2cd077c?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2018 Kawasaki Jet Ski Ultra 310 is certified pre-owned with a full inspection report. Located in Manchester, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Reboarding Ladder",
+      "Bluetooth Audio",
+      "iBR Braking",
+      "Bilge Pump"
+    ],
+    "estimatedShippingDays": 10,
+    "shippingCost": 600,
+    "competitorPrices": [
+      {
+        "siteName": "AutoTrader",
+        "price": 20250
+      },
+      {
+        "siteName": "Carvana",
+        "price": 19000
+      },
+      {
+        "siteName": "TrueCar",
+        "price": 19900
+      }
+    ]
+  },
+  {
+    "id": "ps-027",
+    "type": "jet-ski",
+    "make": "Yamaha",
+    "model": "VX Cruiser",
+    "year": 2018,
+    "price": 11500,
+    "currency": "USD",
+    "condition": "certified-pre-owned",
+    "mileage": 7984,
+    "engineSize": "1188cc",
+    "color": "Alpine White",
+    "location": "Montreal, QC",
+    "country": "Canada",
+    "imageUrl": "https://images.unsplash.com/photo-1671959160332-e963b2cd077c?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1671959160332-e963b2cd077c?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1698009144286-454c9aa251b1?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2018 Yamaha VX Cruiser is certified pre-owned with a full inspection report. Located in Montreal, QC, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Reboarding Ladder",
+      "Bluetooth Audio",
+      "Bilge Pump",
+      "Watertight Storage"
+    ],
+    "estimatedShippingDays": 9,
+    "shippingCost": 850,
+    "competitorPrices": [
+      {
+        "siteName": "Vroom",
+        "price": 12750
+      },
+      {
+        "siteName": "TrueCar",
+        "price": 12300
+      },
+      {
+        "siteName": "Carvana",
+        "price": 12300
+      }
+    ]
+  },
+  {
+    "id": "ps-028",
+    "type": "jet-ski",
+    "make": "Sea-Doo",
+    "model": "Spark",
+    "year": 2020,
+    "price": 7400,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 7316,
+    "engineSize": "1104cc",
+    "color": "Pearl White",
+    "location": "Munich",
+    "country": "Germany",
+    "imageUrl": "https://images.unsplash.com/photo-1698009144286-454c9aa251b1?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1698009144286-454c9aa251b1?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1755566981084-00c579a061a5?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2020 Sea-Doo Spark is in great condition and ready to ride. Located in Munich, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Bilge Pump",
+      "Bluetooth Audio",
+      "Cruise Control",
+      "Reboarding Ladder"
+    ],
+    "estimatedShippingDays": 9,
+    "shippingCost": 650,
+    "competitorPrices": [
+      {
+        "siteName": "TrueCar",
+        "price": 7850
+      },
+      {
+        "siteName": "Vroom",
+        "price": 8450
+      },
+      {
+        "siteName": "Carvana",
+        "price": 8000
+      }
+    ]
+  },
+  {
+    "id": "ps-029",
+    "type": "jet-ski",
+    "make": "Kawasaki",
+    "model": "Jet Ski Ultra 310",
+    "year": 2021,
+    "price": 17400,
+    "currency": "USD",
+    "condition": "used",
+    "mileage": 3613,
+    "engineSize": "1240cc",
+    "color": "Champagne Gold",
+    "location": "Sydney",
+    "country": "Australia",
+    "imageUrl": "https://images.unsplash.com/photo-1755566981084-00c579a061a5?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1755566981084-00c579a061a5?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1671959160332-e963b2cd077c?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2021 Kawasaki Jet Ski Ultra 310 is in great condition and ready to ride. Located in Sydney, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Bilge Pump",
+      "Watertight Storage",
+      "Bluetooth Audio",
+      "iBR Braking"
+    ],
+    "estimatedShippingDays": 3,
+    "shippingCost": 900,
+    "competitorPrices": [
+      {
+        "siteName": "CarMax",
+        "price": 19850
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 18100
+      },
+      {
+        "siteName": "CarGurus",
+        "price": 18250
+      }
+    ]
+  },
+  {
+    "id": "ps-030",
+    "type": "jet-ski",
+    "make": "Kawasaki",
+    "model": "Jet Ski Ultra 310",
+    "year": 2024,
+    "price": 16750,
+    "currency": "USD",
+    "condition": "new",
+    "mileage": 44,
+    "engineSize": "1304cc",
+    "color": "Alpine White",
+    "location": "Chicago, IL",
+    "country": "United States",
+    "imageUrl": "https://images.unsplash.com/photo-1671959160332-e963b2cd077c?auto=format&fit=crop&w=1200&q=70",
+    "images": [
+      "https://images.unsplash.com/photo-1671959160332-e963b2cd077c?auto=format&fit=crop&w=1200&q=70",
+      "https://images.unsplash.com/photo-1698009144286-454c9aa251b1?auto=format&fit=crop&w=1200&q=70"
+    ],
+    "description": "This 2024 Kawasaki Jet Ski Ultra 310 is brand new and ready for delivery. Located in Chicago, IL, it can be shipped to your door or picked up at a nearby AutoMarketplace hub.",
+    "features": [
+      "Watertight Storage",
+      "Bilge Pump",
+      "iBR Braking",
+      "Cruise Control"
+    ],
+    "estimatedShippingDays": 9,
+    "shippingCost": 500,
+    "competitorPrices": [
+      {
+        "siteName": "CarMax",
+        "price": 18250
+      },
+      {
+        "siteName": "AutoTrader",
+        "price": 18450
+      },
+      {
+        "siteName": "CarGurus",
+        "price": 18600
+      }
+    ]
+  }
+]

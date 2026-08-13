@@ -1,13 +1,14 @@
 import { searchCars, getMakes } from "@/data/cars";
 import { CarGrid } from "@/components/cars/CarGrid";
 import { CarFilters } from "@/components/cars/CarFilters";
-import type { CarCondition } from "@/types";
+import type { CarCategory, CarCondition } from "@/types";
 
 interface CarsPageProps {
   searchParams: Promise<{
     query?: string;
     make?: string;
     condition?: string;
+    category?: string;
     maxPrice?: string;
   }>;
 }
@@ -20,6 +21,7 @@ export default async function CarsPage({ searchParams }: CarsPageProps) {
     query: params.query,
     make: params.make,
     condition: params.condition ? (params.condition as CarCondition) : undefined,
+    category: params.category ? (params.category as CarCategory) : undefined,
     maxPrice: params.maxPrice ? Number(params.maxPrice) : undefined,
   });
 
@@ -37,6 +39,7 @@ export default async function CarsPage({ searchParams }: CarsPageProps) {
             query: params.query,
             make: params.make,
             condition: params.condition,
+            category: params.category,
             maxPrice: params.maxPrice,
           }}
         />

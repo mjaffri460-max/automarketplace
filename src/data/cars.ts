@@ -19,6 +19,12 @@ export async function searchCars(filters: CarFilters): Promise<Car[]> {
     if (filters.condition && car.condition !== filters.condition) {
       return false;
     }
+    if (filters.category && car.category !== filters.category) {
+      return false;
+    }
+    if (filters.country && car.country.toLowerCase() !== filters.country.toLowerCase()) {
+      return false;
+    }
     if (filters.minPrice !== undefined && car.price < filters.minPrice) {
       return false;
     }

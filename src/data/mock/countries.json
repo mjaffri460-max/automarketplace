@@ -1,0 +1,17 @@
+[
+  { "code": "US", "name": "United States", "lat": 39.8, "lng": -98.6 },
+  { "code": "CA", "name": "Canada", "lat": 56.1, "lng": -106.3 },
+  { "code": "MX", "name": "Mexico", "lat": 23.6, "lng": -102.5 },
+  { "code": "GB", "name": "United Kingdom", "lat": 55.4, "lng": -3.4 },
+  { "code": "DE", "name": "Germany", "lat": 51.2, "lng": 10.4 },
+  { "code": "FR", "name": "France", "lat": 46.2, "lng": 2.2 },
+  { "code": "IT", "name": "Italy", "lat": 41.9, "lng": 12.6 },
+  { "code": "ES", "name": "Spain", "lat": 40.5, "lng": -3.7 },
+  { "code": "NL", "name": "Netherlands", "lat": 52.1, "lng": 5.3 },
+  { "code": "SE", "name": "Sweden", "lat": 60.1, "lng": 18.6 },
+  { "code": "CH", "name": "Switzerland", "lat": 46.8, "lng": 8.2 },
+  { "code": "AE", "name": "United Arab Emirates", "lat": 23.4, "lng": 53.8 },
+  { "code": "JP", "name": "Japan", "lat": 36.2, "lng": 138.3 },
+  { "code": "KR", "name": "South Korea", "lat": 35.9, "lng": 127.8 },
+  { "code": "AU", "name": "Australia", "lat": -25.3, "lng": 133.8 }
+]
