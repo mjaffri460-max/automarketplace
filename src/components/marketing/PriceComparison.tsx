@@ -16,9 +16,9 @@ export function PriceComparison({ ourPrice, competitorPrices }: PriceComparisonP
   );
 
   return (
-    <div className="rounded-xl border bg-white p-6">
+    <div className="rounded-xl border bg-card p-6">
       <div className="flex items-center justify-between">
-        <p className="text-lg font-semibold text-slate-900">Price Comparison</p>
+        <p className="text-lg font-semibold text-foreground">Price Comparison</p>
         {savings > 0 && <Badge className="bg-emerald-100 text-emerald-800">Best Price</Badge>}
       </div>
       {savings > 0 && (
@@ -32,7 +32,7 @@ export function PriceComparison({ ourPrice, competitorPrices }: PriceComparisonP
           <li
             key={row.siteName}
             className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm ${
-              row.isUs ? "bg-slate-900 text-white" : "bg-slate-50 text-slate-700"
+              row.isUs ? "bg-primary text-primary-foreground" : "bg-muted/40 text-foreground/90"
             }`}
           >
             <span className="font-medium">{row.siteName}</span>
@@ -41,7 +41,7 @@ export function PriceComparison({ ourPrice, competitorPrices }: PriceComparisonP
         ))}
       </ul>
 
-      <p className="mt-3 text-xs text-slate-500">
+      <p className="mt-3 text-xs text-muted-foreground">
         Other marketplace prices are estimated averages for comparable listings and may vary.
       </p>
     </div>

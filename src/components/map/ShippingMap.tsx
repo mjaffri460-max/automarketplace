@@ -20,7 +20,7 @@ export function ShippingMap({ countries }: { countries: ShippingCountryAvailabil
   const maxAvailable = Math.max(...countries.map((c) => c.availableVehicles), 1);
 
   return (
-    <div className="rounded-2xl border bg-slate-900 p-4 sm:p-8">
+    <div className="rounded-2xl border border-primary/20 bg-card p-4 sm:p-8">
       <svg viewBox={`0 0 ${VIEW_WIDTH} ${VIEW_HEIGHT}`} className="w-full" role="img" aria-label="World shipping availability map">
         <ContinentBlobs />
         {countries.map((country) => {
@@ -38,7 +38,7 @@ export function ShippingMap({ countries }: { countries: ShippingCountryAvailabil
           );
         })}
       </svg>
-      <p className="mt-4 text-center text-sm text-slate-400">
+      <p className="mt-4 text-center text-sm text-muted-foreground/70">
         Hover or tap a marker to see how many vehicles are ready to ship from each region.
       </p>
     </div>
@@ -47,7 +47,7 @@ export function ShippingMap({ countries }: { countries: ShippingCountryAvailabil
 
 function ContinentBlobs() {
   return (
-    <g className="fill-slate-700">
+    <g className="fill-muted">
       {/* North America */}
       <path d="M70,90 C130,55 220,50 270,90 C300,120 290,170 260,200 C240,230 230,260 200,270 C160,255 120,230 100,190 C75,160 55,120 70,90 Z" />
       {/* South America */}

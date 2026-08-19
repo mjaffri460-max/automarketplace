@@ -13,8 +13,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-bold text-slate-900">Contact Us</h1>
-      <p className="mt-2 text-base text-slate-600">
+      <h1 className="text-3xl font-bold text-foreground">Contact Us</h1>
+      <p className="mt-2 text-base text-muted-foreground">
         Questions about a car, an order, or a service booking? Send us a message and
         we&apos;ll get back to you.
       </p>

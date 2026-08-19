@@ -13,8 +13,8 @@ export default async function DealersPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <h1 className="text-3xl font-bold text-slate-900">Find a Certified Dealer Hub</h1>
-      <p className="mt-2 max-w-2xl text-base text-slate-600">
+      <h1 className="text-3xl font-bold text-foreground">Find a Certified Dealer Hub</h1>
+      <p className="mt-2 max-w-2xl text-base text-muted-foreground">
         Prefer to meet in person? Pick up your vehicle, get it inspected, or drop in for service
         at one of our certified delivery hubs around the world.
       </p>
@@ -22,7 +22,7 @@ export default async function DealersPage() {
       <div className="mt-10 space-y-10">
         {Array.from(byCountry.entries()).map(([country, countryDealers]) => (
           <div key={country}>
-            <h2 className="mb-4 text-xl font-bold text-slate-900">{country}</h2>
+            <h2 className="mb-4 text-xl font-bold text-foreground">{country}</h2>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {countryDealers.map((dealer) => (
                 <DealerCard key={dealer.id} dealer={dealer} />

@@ -17,14 +17,14 @@ export function CategoryGrid() {
         <Link
           key={category.value}
           href={`/cars?category=${category.value}`}
-          className="group flex flex-col items-center gap-3 rounded-xl border bg-white p-6 text-center transition hover:border-slate-300 hover:shadow-md"
+          className="group flex flex-col items-center gap-3 rounded-xl border bg-card p-6 text-center transition hover:border-border hover:shadow-md"
         >
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-900 transition group-hover:bg-slate-900 group-hover:text-white">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-muted text-foreground transition group-hover:bg-primary group-hover:text-primary-foreground">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d={category.icon} />
             </svg>
           </span>
-          <span className="text-sm font-semibold text-slate-900">{category.label}</span>
+          <span className="text-sm font-semibold text-foreground">{category.label}</span>
         </Link>
       ))}
     </div>

@@ -33,13 +33,13 @@ export default async function PowersportDetailPage({ params }: PowersportDetailP
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <Link href="/powersports" className="text-base font-medium text-slate-600 hover:text-slate-900">
+      <Link href="/powersports" className="text-base font-medium text-muted-foreground hover:text-foreground">
         &larr; Back to all listings
       </Link>
 
       <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div className="flex flex-col gap-4">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-slate-100">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted">
             <Image
               src={item.imageUrl}
               alt={`${item.year} ${item.make} ${item.model}`}
@@ -52,7 +52,7 @@ export default async function PowersportDetailPage({ params }: PowersportDetailP
           {item.images.length > 1 && (
             <div className="grid grid-cols-3 gap-3">
               {item.images.map((image) => (
-                <div key={image} className="relative aspect-[4/3] overflow-hidden rounded-lg bg-slate-100">
+                <div key={image} className="relative aspect-[4/3] overflow-hidden rounded-lg bg-muted">
                   <Image src={image} alt={`${item.model} additional view`} fill sizes="200px" className="object-cover" />
                 </div>
               ))}
@@ -62,14 +62,14 @@ export default async function PowersportDetailPage({ params }: PowersportDetailP
 
         <div className="flex flex-col gap-4">
           <div className="flex gap-2">
-            <Badge className="w-fit bg-slate-100 text-slate-900">{typeLabel[item.type]}</Badge>
-            <Badge className="w-fit bg-slate-100 text-slate-900">{conditionLabel[item.condition]}</Badge>
+            <Badge className="w-fit bg-muted text-foreground">{typeLabel[item.type]}</Badge>
+            <Badge className="w-fit bg-muted text-foreground">{conditionLabel[item.condition]}</Badge>
           </div>
-          <h1 className="text-3xl font-bold text-slate-900">
+          <h1 className="text-3xl font-bold text-foreground">
             {item.year} {item.make} {item.model}
           </h1>
-          <p className="text-4xl font-bold text-slate-900">${item.price.toLocaleString()}</p>
-          <p className="text-base text-slate-600">
+          <p className="text-4xl font-bold text-foreground">${item.price.toLocaleString()}</p>
+          <p className="text-base text-muted-foreground">
             Plus estimated shipping: ${item.shippingCost.toLocaleString()} &middot; Arrives in
             about {item.estimatedShippingDays} days
           </p>
@@ -78,32 +78,32 @@ export default async function PowersportDetailPage({ params }: PowersportDetailP
 
           <dl className="grid grid-cols-2 gap-4 text-base">
             <div>
-              <dt className="text-slate-500">Mileage / Hours</dt>
-              <dd className="font-semibold text-slate-900">{item.mileage.toLocaleString()}</dd>
+              <dt className="text-muted-foreground">Mileage / Hours</dt>
+              <dd className="font-semibold text-foreground">{item.mileage.toLocaleString()}</dd>
             </div>
             <div>
-              <dt className="text-slate-500">Engine Size</dt>
-              <dd className="font-semibold text-slate-900">{item.engineSize}</dd>
+              <dt className="text-muted-foreground">Engine Size</dt>
+              <dd className="font-semibold text-foreground">{item.engineSize}</dd>
             </div>
             <div>
-              <dt className="text-slate-500">Color</dt>
-              <dd className="font-semibold text-slate-900">{item.color}</dd>
+              <dt className="text-muted-foreground">Color</dt>
+              <dd className="font-semibold text-foreground">{item.color}</dd>
             </div>
             <div>
-              <dt className="text-slate-500">Location</dt>
-              <dd className="font-semibold text-slate-900">{item.location}</dd>
+              <dt className="text-muted-foreground">Location</dt>
+              <dd className="font-semibold text-foreground">{item.location}</dd>
             </div>
           </dl>
 
           <Separator />
 
-          <p className="text-base text-slate-700">{item.description}</p>
+          <p className="text-base text-foreground/90">{item.description}</p>
 
           <div>
-            <p className="mb-2 text-base font-semibold text-slate-900">Features</p>
-            <ul className="grid grid-cols-2 gap-2 text-sm text-slate-700">
+            <p className="mb-2 text-base font-semibold text-foreground">Features</p>
+            <ul className="grid grid-cols-2 gap-2 text-sm text-foreground/90">
               {item.features.map((feature) => (
-                <li key={feature} className="rounded-md bg-slate-50 px-3 py-2">
+                <li key={feature} className="rounded-md bg-muted/40 px-3 py-2">
                   {feature}
                 </li>
               ))}

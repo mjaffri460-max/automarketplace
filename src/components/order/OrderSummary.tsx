@@ -6,9 +6,9 @@ export function OrderSummary({ vehicle }: { vehicle: Car | Powersport }) {
   const trim = "trim" in vehicle ? vehicle.trim : undefined;
 
   return (
-    <div className="rounded-xl border bg-white p-6">
+    <div className="rounded-xl border bg-card p-6">
       <div className="flex gap-4">
-        <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-lg bg-slate-100">
+        <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-lg bg-muted">
           <Image
             src={vehicle.imageUrl}
             alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
@@ -17,28 +17,28 @@ export function OrderSummary({ vehicle }: { vehicle: Car | Powersport }) {
           />
         </div>
         <div>
-          <p className="text-base font-semibold text-slate-900">
+          <p className="text-base font-semibold text-foreground">
             {vehicle.year} {vehicle.make} {vehicle.model}
           </p>
-          {trim && <p className="text-sm text-slate-600">{trim}</p>}
-          <p className="text-sm text-slate-500">{vehicle.location}</p>
+          {trim && <p className="text-sm text-muted-foreground">{trim}</p>}
+          <p className="text-sm text-muted-foreground">{vehicle.location}</p>
         </div>
       </div>
 
       <div className="mt-6 space-y-2 border-t pt-4 text-base">
-        <div className="flex justify-between text-slate-700">
+        <div className="flex justify-between text-foreground/90">
           <span>Vehicle Price</span>
-          <span className="font-medium text-slate-900">${vehicle.price.toLocaleString()}</span>
+          <span className="font-medium text-foreground">${vehicle.price.toLocaleString()}</span>
         </div>
-        <div className="flex justify-between text-slate-700">
+        <div className="flex justify-between text-foreground/90">
           <span>Estimated Shipping</span>
-          <span className="font-medium text-slate-900">${vehicle.shippingCost.toLocaleString()}</span>
+          <span className="font-medium text-foreground">${vehicle.shippingCost.toLocaleString()}</span>
         </div>
-        <div className="flex justify-between border-t pt-2 text-lg font-bold text-slate-900">
+        <div className="flex justify-between border-t pt-2 text-lg font-bold text-foreground">
           <span>Total</span>
           <span>${total.toLocaleString()}</span>
         </div>
-        <p className="pt-1 text-sm text-slate-500">
+        <p className="pt-1 text-sm text-muted-foreground">
           Estimated delivery in about {vehicle.estimatedShippingDays} days.
         </p>
       </div>

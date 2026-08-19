@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getCar } from "@/data/cars";
 import { getPowersport } from "@/data/powersports";
+import { getOrder } from "@/data/orders";
+import { createClient } from "@/lib/supabase/server";
 import { OrderSummary } from "@/components/order/OrderSummary";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,19 +27,39 @@ export default async function OrderPage({ params, searchParams }: OrderPageProps
 
   const detailHref = car ? `/cars/${vehicle.id}` : `/powersports/${vehicle.id}`;
 
+  const supabase = await createClient();
+  const { data: userData } = await supabase.auth.getUser();
+  if (!userData.user) {
+    redirect("/login");
+  }
+
   if (orderId) {
-    const total = vehicle.price + vehicle.shippingCost;
+    const order = await getOrder(orderId);
+
+    if (!order) {
+      notFound();
+    }
+
+    const paymentMessage =
+      order.paymentMethod === "cash"
+        ? order.paymentStatus === "paid"
+          ? "Your payment has been received."
+          : order.paymentStatus === "failed"
+            ? "Your payment didn't go through — you can try again from your account, or contact us for help."
+            : "We're waiting for your payment to be confirmed. This can take a moment."
+        : `Our financing team will reach out shortly about your ${order.paymentMethod} application.`;
+
     return (
       <div className="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6">
-        <p className="text-sm font-semibold uppercase tracking-wide text-emerald-600">
-          Order Confirmed
+        <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+          Order {order.status === "confirmed" ? "Confirmed" : "Received"}
         </p>
-        <h1 className="mt-2 text-3xl font-bold text-slate-900">Thank you for your order!</h1>
-        <p className="mt-3 text-base text-slate-600">
-          Order <span className="font-semibold text-slate-900">{orderId}</span> for your{" "}
-          {vehicle.year} {vehicle.make} {vehicle.model} has been received. We&apos;ll be in touch
-          to confirm shipping details for your total of ${total.toLocaleString()}.
+        <h1 className="mt-2 text-3xl font-bold text-foreground">Thank you for your order!</h1>
+        <p className="mt-3 text-base text-muted-foreground">
+          Order <span className="font-semibold text-foreground">{order.orderId}</span> for your{" "}
+          {order.vehicleSummary} has been received — total ${order.totalPrice.toLocaleString()}.
         </p>
+        <p className="mt-2 text-base text-muted-foreground">{paymentMessage}</p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button render={<Link href="/services" />} size="lg" className="text-base">
             Book Warranty, Maintenance, or Insurance
@@ -54,11 +76,11 @@ export default async function OrderPage({ params, searchParams }: OrderPageProps
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <Link href={detailHref} className="text-base font-medium text-slate-600 hover:text-slate-900">
+      <Link href={detailHref} className="text-base font-medium text-muted-foreground hover:text-foreground">
         &larr; Back to details
       </Link>
-      <h1 className="mt-4 text-3xl font-bold text-slate-900">Order &amp; Shipping Details</h1>
-      <p className="mt-2 text-base text-slate-600">
+      <h1 className="mt-4 text-3xl font-bold text-foreground">Order &amp; Shipping Details</h1>
+      <p className="mt-2 text-base text-muted-foreground">
         Tell us where to ship your order. No payment is required yet — this reserves your order.
       </p>
 
@@ -109,6 +131,26 @@ export default async function OrderPage({ params, searchParams }: OrderPageProps
             <Label htmlFor="country">Country</Label>
             <Input id="country" name="country" required placeholder="United States" className="h-11 text-base" />
           </div>
+
+          <fieldset className="flex flex-col gap-2">
+            <legend className="text-sm font-medium text-foreground/90">How would you like to pay?</legend>
+            <label className="flex items-center gap-2 rounded-lg border border-border px-4 py-3 text-base">
+              <input type="radio" name="paymentMethod" value="cash" defaultChecked className="h-4 w-4" />
+              Pay in full now by card
+            </label>
+            <label className="flex items-center gap-2 rounded-lg border border-border px-4 py-3 text-base">
+              <input type="radio" name="paymentMethod" value="finance" className="h-4 w-4" />
+              Apply for financing
+            </label>
+            <label className="flex items-center gap-2 rounded-lg border border-border px-4 py-3 text-base">
+              <input type="radio" name="paymentMethod" value="lease" className="h-4 w-4" />
+              Apply for a lease
+            </label>
+            <p className="text-sm text-muted-foreground">
+              Financing and lease requests don&apos;t charge you now — our team follows up to
+              complete the application.
+            </p>
+          </fieldset>
 
           <Button type="submit" size="lg" className="mt-2 text-base">
             Confirm Order

@@ -1,51 +1,58 @@
-import carsData from "./mock/cars.json";
+import { supabase } from "@/lib/supabase";
+import { mapCarRow, type CarRow } from "@/lib/mappers/car";
 import type { Car, CarFilters } from "@/types";
 
-const cars = carsData as Car[];
-
 export async function getCars(): Promise<Car[]> {
-  return cars;
+  const { data, error } = await supabase.from("cars").select("*");
+  if (error) throw error;
+  return (data as CarRow[]).map(mapCarRow);
 }
 
 export async function getCar(id: string): Promise<Car | null> {
-  return cars.find((car) => car.id === id) ?? null;
+  const { data, error } = await supabase.from("cars").select("*").eq("id", id).maybeSingle();
+  if (error) throw error;
+  return data ? mapCarRow(data as CarRow) : null;
 }
 
 export async function searchCars(filters: CarFilters): Promise<Car[]> {
-  return cars.filter((car) => {
-    if (filters.make && car.make.toLowerCase() !== filters.make.toLowerCase()) {
-      return false;
-    }
-    if (filters.condition && car.condition !== filters.condition) {
-      return false;
-    }
-    if (filters.category && car.category !== filters.category) {
-      return false;
-    }
-    if (filters.country && car.country.toLowerCase() !== filters.country.toLowerCase()) {
-      return false;
-    }
-    if (filters.minPrice !== undefined && car.price < filters.minPrice) {
-      return false;
-    }
-    if (filters.maxPrice !== undefined && car.price > filters.maxPrice) {
-      return false;
-    }
-    if (filters.query) {
-      const query = filters.query.toLowerCase();
-      const haystack = `${car.make} ${car.model} ${car.trim ?? ""}`.toLowerCase();
-      if (!haystack.includes(query)) {
-        return false;
-      }
-    }
-    return true;
-  });
+  let query = supabase.from("cars").select("*");
+
+  if (filters.make) {
+    query = query.ilike("make", filters.make);
+  }
+  if (filters.condition) {
+    query = query.eq("condition", filters.condition);
+  }
+  if (filters.category) {
+    query = query.eq("category", filters.category);
+  }
+  if (filters.country) {
+    query = query.ilike("country", filters.country);
+  }
+  if (filters.minPrice !== undefined) {
+    query = query.gte("price", filters.minPrice);
+  }
+  if (filters.maxPrice !== undefined) {
+    query = query.lte("price", filters.maxPrice);
+  }
+  if (filters.query) {
+    const q = filters.query.replace(/[%,]/g, "");
+    query = query.or(`make.ilike.%${q}%,model.ilike.%${q}%,trim.ilike.%${q}%`);
+  }
+
+  const { data, error } = await query;
+  if (error) throw error;
+  return (data as CarRow[]).map(mapCarRow);
 }
 
 export async function getFeaturedCars(limit = 4): Promise<Car[]> {
-  return cars.slice(0, limit);
+  const { data, error } = await supabase.from("cars").select("*").limit(limit);
+  if (error) throw error;
+  return (data as CarRow[]).map(mapCarRow);
 }
 
 export async function getMakes(): Promise<string[]> {
-  return Array.from(new Set(cars.map((car) => car.make))).sort();
+  const { data, error } = await supabase.from("cars").select("make");
+  if (error) throw error;
+  return Array.from(new Set((data as { make: string }[]).map((row) => row.make))).sort();
 }

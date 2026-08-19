@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { findFaqAnswer } from "@/data/faq";
 import faqData from "@/data/mock/faq.json";
 import type { FaqEntry } from "@/types";
 
@@ -14,41 +13,59 @@ const quickReplies = (faqData as FaqEntry[]).slice(0, 4);
 
 const WELCOME_MESSAGE: ChatMessage = {
   role: "bot",
-  text: "Hi! I'm the AutoMarketplace assistant. Ask me about shipping, pricing, warranty, insurance, or anything else — or tap a question below.",
+  text: "Hi! I'm the AutoMarketplace assistant. Ask me about real cars, powersports, shipping, warranty, or insurance — or tap a question below.",
 };
 
 const FALLBACK_ANSWER =
-  "I don't have an answer for that yet, but our team can help — visit the Contact page and we'll get back to you quickly.";
+  "Something went wrong reaching the assistant. Please try again, or visit the Contact page and our team will help.";
 
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([WELCOME_MESSAGE]);
   const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   async function sendMessage(text: string) {
     const trimmed = text.trim();
-    if (!trimmed) return;
+    if (!trimmed || isLoading) return;
 
-    setMessages((prev) => [...prev, { role: "user", text: trimmed }]);
+    const nextMessages = [...messages, { role: "user" as const, text: trimmed }];
+    setMessages(nextMessages);
     setInput("");
+    setIsLoading(true);
 
-    const match = await findFaqAnswer(trimmed);
-    const answer = match?.answer ?? FALLBACK_ANSWER;
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: nextMessages.map((message) => ({
+            role: message.role === "bot" ? "assistant" : "user",
+            text: message.text,
+          })),
+        }),
+      });
 
-    setMessages((prev) => [...prev, { role: "bot", text: answer }]);
+      const data = await response.json();
+      setMessages((prev) => [...prev, { role: "bot", text: data.reply ?? FALLBACK_ANSWER }]);
+    } catch {
+      setMessages((prev) => [...prev, { role: "bot", text: FALLBACK_ANSWER }]);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
       {open && (
-        <div className="flex h-[28rem] w-[22rem] max-w-[calc(100vw-2.5rem)] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
-          <div className="flex items-center justify-between bg-slate-900 px-4 py-3 text-white">
+        <div className="flex h-[28rem] w-[22rem] max-w-[calc(100vw-2.5rem)] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
+          <div className="flex items-center justify-between bg-primary px-4 py-3 text-primary-foreground">
             <p className="text-base font-semibold">AutoMarketplace Assistant</p>
             <button
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close chat"
-              className="rounded-full p-1 text-white/80 hover:bg-white/10 hover:text-white"
+              className="rounded-full p-1 text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground"
             >
               <CloseIcon />
             </button>
@@ -63,14 +80,21 @@ export function ChatWidget() {
                 <p
                   className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-3 py-2 text-sm ${
                     message.role === "user"
-                      ? "bg-slate-900 text-white"
-                      : "bg-slate-100 text-slate-800"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted text-foreground"
                   }`}
                 >
                   {message.text}
                 </p>
               </div>
             ))}
+            {isLoading && (
+              <div className="flex justify-start">
+                <p className="max-w-[85%] rounded-2xl bg-muted px-3 py-2 text-sm text-muted-foreground">
+                  Thinking…
+                </p>
+              </div>
+            )}
           </div>
 
           {messages.length <= 1 && (
@@ -80,7 +104,7 @@ export function ChatWidget() {
                   key={faq.id}
                   type="button"
                   onClick={() => sendMessage(faq.question)}
-                  className="rounded-full border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100"
+                  className="rounded-full border border-border px-3 py-1.5 text-xs font-medium text-foreground/90 hover:bg-muted"
                 >
                   {faq.question}
                 </button>
@@ -100,11 +124,13 @@ export function ChatWidget() {
               value={input}
               onChange={(event) => setInput(event.target.value)}
               placeholder="Type a question..."
-              className="h-10 flex-1 rounded-full border border-slate-300 px-4 text-sm"
+              disabled={isLoading}
+              className="h-10 flex-1 rounded-full border border-border px-4 text-sm disabled:opacity-60"
             />
             <button
               type="submit"
-              className="h-10 shrink-0 rounded-full bg-slate-900 px-4 text-sm font-semibold text-white hover:bg-slate-700"
+              disabled={isLoading}
+              className="h-10 shrink-0 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-60"
             >
               Send
             </button>
@@ -116,7 +142,7 @@ export function ChatWidget() {
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         aria-label={open ? "Close AI assistant" : "Open AI assistant"}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-900 text-white shadow-xl transition hover:scale-105 hover:bg-slate-700"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-xl shadow-primary/30 transition hover:scale-105 hover:bg-primary/90"
       >
         {open ? <CloseIcon /> : <ChatIcon />}
       </button>

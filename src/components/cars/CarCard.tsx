@@ -13,9 +13,9 @@ export function CarCard({ car }: { car: Car }) {
   return (
     <Link
       href={`/cars/${car.id}`}
-      className="group flex flex-col overflow-hidden rounded-xl border bg-white shadow-sm transition hover:shadow-md"
+      className="group flex flex-col overflow-hidden rounded-xl border bg-card transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
         <Image
           src={car.imageUrl}
           alt={`${car.year} ${car.make} ${car.model}`}
@@ -23,19 +23,19 @@ export function CarCard({ car }: { car: Car }) {
           sizes="(max-width: 768px) 100vw, 25vw"
           className="object-cover transition group-hover:scale-105"
         />
-        <Badge className="absolute left-3 top-3 bg-white text-slate-900 shadow">
+        <Badge className="absolute left-3 top-3 border border-primary/30 bg-background/80 text-foreground backdrop-blur">
           {conditionLabel[car.condition]}
         </Badge>
       </div>
       <div className="flex flex-1 flex-col gap-1 p-4">
-        <p className="text-lg font-semibold text-slate-900">
+        <p className="text-lg font-semibold text-foreground">
           {car.year} {car.make} {car.model}
         </p>
-        {car.trim && <p className="text-sm text-slate-600">{car.trim}</p>}
-        <p className="mt-2 text-xl font-bold text-slate-900">
+        {car.trim && <p className="text-sm text-muted-foreground">{car.trim}</p>}
+        <p className="mt-2 text-xl font-bold text-primary">
           ${car.price.toLocaleString()}
         </p>
-        <p className="text-sm text-slate-500">{car.location}</p>
+        <p className="text-sm text-muted-foreground">{car.location}</p>
       </div>
     </Link>
   );

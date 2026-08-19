@@ -27,8 +27,8 @@ export default async function CarsPage({ searchParams }: CarsPageProps) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <h1 className="text-3xl font-bold text-slate-900">Browse Cars</h1>
-      <p className="mt-2 text-base text-slate-600">
+      <h1 className="text-3xl font-bold text-foreground">Browse Cars</h1>
+      <p className="mt-2 text-base text-muted-foreground">
         {cars.length} {cars.length === 1 ? "car" : "cars"} available
       </p>
 

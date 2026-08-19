@@ -15,9 +15,9 @@ export function BookingForm({ services, defaultServiceId }: BookingFormProps) {
     <form
       id="booking-form"
       action={submitBooking}
-      className="flex flex-col gap-5 rounded-xl border bg-white p-6"
+      className="flex flex-col gap-5 rounded-xl border bg-card p-6"
     >
-      <h2 className="text-2xl font-bold text-slate-900">Book a Service</h2>
+      <h2 className="text-2xl font-bold text-foreground">Book a Service</h2>
 
       <div className="flex flex-col gap-1.5">
         <Label htmlFor="serviceId">Service</Label>
@@ -26,7 +26,7 @@ export function BookingForm({ services, defaultServiceId }: BookingFormProps) {
           name="serviceId"
           required
           defaultValue={defaultServiceId ?? ""}
-          className="h-11 rounded-md border border-slate-300 px-3 text-base"
+          className="h-11 rounded-md border border-border px-3 text-base"
         >
           <option value="" disabled>
             Choose a service

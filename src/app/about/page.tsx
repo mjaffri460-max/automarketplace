@@ -8,12 +8,12 @@ const stats = [
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-      <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">Our Story</p>
-      <h1 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
+      <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Our Story</p>
+      <h1 className="mt-2 text-3xl font-bold text-foreground sm:text-4xl">
         Why should your dream car depend on your zip code?
       </h1>
 
-      <div className="mt-8 space-y-5 text-base leading-relaxed text-slate-700">
+      <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/90">
         <p>
           AutoMarketplace started with a simple frustration: too many people can see the exact
           car, motorcycle, or watercraft they want — it just happens to be listed a thousand
@@ -43,8 +43,8 @@ export default function AboutPage() {
       <div className="mt-12 grid grid-cols-2 gap-6 border-t pt-10 sm:grid-cols-4">
         {stats.map((stat) => (
           <div key={stat.label}>
-            <p className="text-3xl font-bold text-slate-900">{stat.value}</p>
-            <p className="mt-1 text-sm text-slate-600">{stat.label}</p>
+            <p className="text-3xl font-bold text-foreground">{stat.value}</p>
+            <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
           </div>
         ))}
       </div>

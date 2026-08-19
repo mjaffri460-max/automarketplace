@@ -13,11 +13,11 @@ export default async function ServiceConfirmationPage({ searchParams }: ServiceC
       <p className="text-sm font-semibold uppercase tracking-wide text-emerald-600">
         Booking Requested
       </p>
-      <h1 className="mt-2 text-3xl font-bold text-slate-900">You&apos;re all set!</h1>
-      <p className="mt-3 text-base text-slate-600">
+      <h1 className="mt-2 text-3xl font-bold text-foreground">You&apos;re all set!</h1>
+      <p className="mt-3 text-base text-muted-foreground">
         {serviceName ? (
           <>
-            Your request for <span className="font-semibold text-slate-900">{serviceName}</span>
+            Your request for <span className="font-semibold text-foreground">{serviceName}</span>
             {date ? <> on {date}</> : null} has been received
             {bookingId ? <> (confirmation {bookingId})</> : null}. We&apos;ll reach out shortly to
             confirm the details.

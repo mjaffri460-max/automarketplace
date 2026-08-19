@@ -1,16 +1,46 @@
-import dealersData from "./mock/dealers.json";
+import { supabase } from "@/lib/supabase";
 import type { Dealer } from "@/types";
 
-const dealers = dealersData as Dealer[];
+type DealerRow = {
+  id: string;
+  name: string;
+  city: string;
+  country: string;
+  address: string;
+  lat: number;
+  lng: number;
+  phone: string;
+  services_offered: string[];
+};
+
+function mapDealer(row: DealerRow): Dealer {
+  return {
+    id: row.id,
+    name: row.name,
+    city: row.city,
+    country: row.country,
+    address: row.address,
+    lat: row.lat,
+    lng: row.lng,
+    phone: row.phone,
+    servicesOffered: row.services_offered,
+  };
+}
 
 export async function getDealers(): Promise<Dealer[]> {
-  return dealers;
+  const { data, error } = await supabase.from("dealers").select("*");
+  if (error) throw error;
+  return (data as DealerRow[]).map(mapDealer);
 }
 
 export async function getDealer(id: string): Promise<Dealer | null> {
-  return dealers.find((dealer) => dealer.id === id) ?? null;
+  const { data, error } = await supabase.from("dealers").select("*").eq("id", id).maybeSingle();
+  if (error) throw error;
+  return data ? mapDealer(data as DealerRow) : null;
 }
 
 export async function getDealersByCountry(country: string): Promise<Dealer[]> {
-  return dealers.filter((dealer) => dealer.country.toLowerCase() === country.toLowerCase());
+  const { data, error } = await supabase.from("dealers").select("*").ilike("country", country);
+  if (error) throw error;
+  return (data as DealerRow[]).map(mapDealer);
 }

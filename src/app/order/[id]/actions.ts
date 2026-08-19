@@ -2,10 +2,12 @@
 
 import { redirect } from "next/navigation";
 import { createOrder } from "@/data/orders";
+import type { PaymentMethod } from "@/types";
 
 export async function placeOrder(vehicleId: string, formData: FormData) {
   const confirmation = await createOrder({
     vehicleId,
+    paymentMethod: (formData.get("paymentMethod") as PaymentMethod) ?? "cash",
     shippingAddress: {
       fullName: String(formData.get("fullName") ?? ""),
       addressLine1: String(formData.get("addressLine1") ?? ""),
@@ -18,6 +20,10 @@ export async function placeOrder(vehicleId: string, formData: FormData) {
       email: String(formData.get("email") ?? ""),
     },
   });
+
+  if (confirmation.checkoutUrl) {
+    redirect(confirmation.checkoutUrl);
+  }
 
   const query = new URLSearchParams({ orderId: confirmation.orderId }).toString();
   redirect(`/order/${vehicleId}?${query}`);

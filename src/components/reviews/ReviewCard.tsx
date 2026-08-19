@@ -2,13 +2,13 @@ import type { Review } from "@/types";
 
 export function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="flex h-full flex-col gap-3 rounded-xl border bg-white p-6">
+    <div className="flex h-full flex-col gap-3 rounded-xl border bg-card p-6">
       <StarRating rating={review.rating} />
-      <p className="text-base font-semibold text-slate-900">{review.title}</p>
-      <p className="flex-1 text-sm text-slate-600">{review.body}</p>
+      <p className="text-base font-semibold text-foreground">{review.title}</p>
+      <p className="flex-1 text-sm text-muted-foreground">{review.body}</p>
       <div className="border-t pt-3 text-sm">
-        <p className="font-medium text-slate-900">{review.authorName}</p>
-        <p className="text-slate-500">
+        <p className="font-medium text-foreground">{review.authorName}</p>
+        <p className="text-muted-foreground">
           {review.location}
           {review.vehiclePurchased && <> &middot; {review.vehiclePurchased}</>}
         </p>

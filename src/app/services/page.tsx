@@ -12,8 +12,8 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <h1 className="text-3xl font-bold text-slate-900">Warranty, Maintenance, Insurance &amp; More</h1>
-      <p className="mt-2 max-w-2xl text-base text-slate-600">
+      <h1 className="text-3xl font-bold text-foreground">Warranty, Maintenance, Insurance &amp; More</h1>
+      <p className="mt-2 max-w-2xl text-base text-muted-foreground">
         Keep your car protected and running smoothly. Book any of these services in a
         few simple steps — no account needed.
       </p>

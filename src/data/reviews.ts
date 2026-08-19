@@ -1,17 +1,50 @@
-import reviewsData from "./mock/reviews.json";
+import { supabase } from "@/lib/supabase";
 import type { Review } from "@/types";
 
-const reviews = reviewsData as Review[];
+type ReviewRow = {
+  id: string;
+  author_name: string;
+  location: string;
+  rating: number;
+  title: string;
+  body: string;
+  vehicle_purchased: string | null;
+  date: string;
+};
+
+function mapReview(row: ReviewRow): Review {
+  return {
+    id: row.id,
+    authorName: row.author_name,
+    location: row.location,
+    rating: row.rating,
+    title: row.title,
+    body: row.body,
+    vehiclePurchased: row.vehicle_purchased ?? undefined,
+    date: row.date,
+  };
+}
 
 export async function getReviews(): Promise<Review[]> {
-  return reviews;
+  const { data, error } = await supabase.from("reviews").select("*");
+  if (error) throw error;
+  return (data as ReviewRow[]).map(mapReview);
 }
 
 export async function getFeaturedReviews(limit = 6): Promise<Review[]> {
-  return reviews.filter((review) => review.rating >= 4).slice(0, limit);
+  const { data, error } = await supabase
+    .from("reviews")
+    .select("*")
+    .gte("rating", 4)
+    .limit(limit);
+  if (error) throw error;
+  return (data as ReviewRow[]).map(mapReview);
 }
 
 export async function getAverageRating(): Promise<number> {
-  const total = reviews.reduce((sum, review) => sum + review.rating, 0);
-  return Math.round((total / reviews.length) * 10) / 10;
+  const { data, error } = await supabase.from("reviews").select("rating");
+  if (error) throw error;
+  const ratings = (data as { rating: number }[]).map((row) => row.rating);
+  const total = ratings.reduce((sum, rating) => sum + rating, 0);
+  return Math.round((total / ratings.length) * 10) / 10;
 }

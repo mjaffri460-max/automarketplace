@@ -124,9 +124,13 @@ export interface ShippingAddress {
   email: string;
 }
 
+export type PaymentMethod = "cash" | "finance" | "lease";
+export type PaymentStatus = "unpaid" | "processing" | "paid" | "failed";
+
 export interface OrderRequest {
   vehicleId: string;
   shippingAddress: ShippingAddress;
+  paymentMethod: PaymentMethod;
   notes?: string;
 }
 
@@ -138,6 +142,22 @@ export interface OrderConfirmation {
   currency: string;
   estimatedDeliveryDays: number;
   status: "pending" | "confirmed";
+  paymentMethod: PaymentMethod;
+  paymentStatus: PaymentStatus;
+  checkoutUrl?: string;
+}
+
+export interface Order extends OrderConfirmation {
+  shippingAddress: ShippingAddress;
+  notes?: string;
+  createdAt: string;
+}
+
+export interface Booking extends BookingConfirmation {
+  email: string;
+  phone: string;
+  notes?: string;
+  createdAt: string;
 }
 
 export interface ContactMessage {
@@ -198,4 +218,164 @@ export interface FaqEntry {
   question: string;
   keywords: string[];
   answer: string;
+}
+
+export type UserRole = "customer" | "supplier" | "admin";
+export type SupplierStatus = "pending" | "approved" | "rejected";
+
+export interface Profile {
+  id: string;
+  fullName?: string;
+  phone?: string;
+  role: UserRole;
+  supplierStatus?: SupplierStatus;
+  createdAt: string;
+}
+
+export type VehicleType = "car" | "motorcycle" | "jet-ski";
+
+export interface ShippingRate {
+  destinationCountry: string;
+  vehicleType: VehicleType;
+  baseCost: number;
+  currency: string;
+  estimatedDays: number;
+}
+
+export type ListingStatus = "pending" | "approved" | "rejected" | "sold";
+
+export interface CarListing {
+  id: string;
+  userId: string;
+  make: string;
+  model: string;
+  year: number;
+  mileage: number;
+  condition: string;
+  color?: string;
+  description?: string;
+  askingPrice: number;
+  currency: string;
+  country: string;
+  location?: string;
+  images: string[];
+  status: ListingStatus;
+  createdAt: string;
+}
+
+export interface CarListingRequest {
+  make: string;
+  model: string;
+  year: number;
+  mileage: number;
+  condition: string;
+  color?: string;
+  description?: string;
+  askingPrice: number;
+  currency: string;
+  country: string;
+  location?: string;
+  images: string[];
+}
+
+export type TradeInStatus = "submitted" | "under_review" | "offer_made" | "accepted" | "declined";
+
+export interface InspectionAnswers {
+  exterior: Record<string, string>;
+  interior: Record<string, string>;
+  mechanical: Record<string, string>;
+  history: Record<string, string>;
+}
+
+export interface TradeInRequest {
+  id: string;
+  userId: string;
+  make: string;
+  model: string;
+  year: number;
+  mileage: number;
+  vin?: string;
+  conditionAnswers: InspectionAnswers;
+  photos: Record<string, string>;
+  estimatedValue?: number;
+  currency: string;
+  status: TradeInStatus;
+  offerAmount?: number;
+  createdAt: string;
+}
+
+export interface TradeInRequestInput {
+  make: string;
+  model: string;
+  year: number;
+  mileage: number;
+  vin?: string;
+  conditionAnswers: InspectionAnswers;
+  photos: Record<string, string>;
+}
+
+export type ConciergeStatus = "open" | "sourcing" | "matched" | "closed";
+
+export interface ConciergeRequest {
+  id: string;
+  userId: string;
+  make?: string;
+  model?: string;
+  yearMin?: number;
+  yearMax?: number;
+  budgetMin?: number;
+  budgetMax?: number;
+  currency: string;
+  category?: string;
+  destinationCountry: string;
+  notes?: string;
+  status: ConciergeStatus;
+  createdAt: string;
+}
+
+export interface ConciergeRequestInput {
+  make?: string;
+  model?: string;
+  yearMin?: number;
+  yearMax?: number;
+  budgetMin?: number;
+  budgetMax?: number;
+  currency: string;
+  category?: string;
+  destinationCountry: string;
+  notes?: string;
+}
+
+export type SupplierSubmissionStatus = "pending" | "approved" | "rejected" | "listed";
+
+export interface SupplierSubmission {
+  id: string;
+  supplierId: string;
+  make: string;
+  model: string;
+  year: number;
+  mileage?: number;
+  condition?: string;
+  askingPrice?: number;
+  currency: string;
+  sourceCountry: string;
+  exportOrImport: "export" | "import";
+  images: string[];
+  notes?: string;
+  status: SupplierSubmissionStatus;
+  createdAt: string;
+}
+
+export interface SupplierSubmissionInput {
+  make: string;
+  model: string;
+  year: number;
+  mileage?: number;
+  condition?: string;
+  askingPrice?: number;
+  currency: string;
+  sourceCountry: string;
+  exportOrImport: "export" | "import";
+  images: string[];
+  notes?: string;
 }
