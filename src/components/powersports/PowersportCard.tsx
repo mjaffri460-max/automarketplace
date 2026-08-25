@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { Price } from "@/components/currency/Price";
 import type { Powersport } from "@/types";
 
 const typeLabel: Record<Powersport["type"], string> = {
@@ -31,7 +32,9 @@ export function PowersportCard({ item }: { item: Powersport }) {
         <p className="text-lg font-semibold text-foreground">
           {item.year} {item.make} {item.model}
         </p>
-        <p className="mt-2 text-xl font-bold text-primary">${item.price.toLocaleString()}</p>
+        <p className="mt-2 text-xl font-bold text-primary">
+          <Price usd={item.price} />
+        </p>
         <p className="text-sm text-muted-foreground">{item.location}</p>
       </div>
     </Link>

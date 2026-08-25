@@ -1,6 +1,7 @@
 import { getServices } from "@/data/services";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { BookingForm } from "@/components/services/BookingForm";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface ServicesPageProps {
   searchParams: Promise<{ serviceId?: string }>;
@@ -12,21 +13,25 @@ export default async function ServicesPage({ searchParams }: ServicesPageProps) 
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <h1 className="text-3xl font-bold text-foreground">Warranty, Maintenance, Insurance &amp; More</h1>
-      <p className="mt-2 max-w-2xl text-base text-muted-foreground">
-        Keep your car protected and running smoothly. Book any of these services in a
-        few simple steps — no account needed.
-      </p>
+      <Reveal>
+        <h1 className="text-3xl font-bold text-foreground">Warranty, Maintenance, Insurance &amp; More</h1>
+        <p className="mt-2 max-w-2xl text-base text-muted-foreground">
+          Keep your car protected and running smoothly. Book any of these services in a
+          few simple steps — no account needed.
+        </p>
+      </Reveal>
 
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => (
-          <ServiceCard key={service.id} service={service} />
+        {services.map((service, index) => (
+          <Reveal key={service.id} index={index}>
+            <ServiceCard service={service} />
+          </Reveal>
         ))}
       </div>
 
-      <div className="mt-12 max-w-2xl">
+      <Reveal delay={0.1} className="mt-12 max-w-2xl">
         <BookingForm services={services} defaultServiceId={serviceId} />
-      </div>
+      </Reveal>
     </div>
   );
 }

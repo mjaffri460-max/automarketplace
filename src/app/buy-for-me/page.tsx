@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Reveal } from "@/components/motion/Reveal";
 import { submitConciergeRequest } from "./actions";
 
 const DESTINATION_COUNTRIES = [
@@ -49,19 +50,22 @@ export default async function BuyForMePage({ searchParams }: BuyForMePageProps) 
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-bold text-foreground">Buy For Me</h1>
-      <p className="mt-2 text-base text-muted-foreground">
-        Can&apos;t find your dream car in our current inventory? Tell us what you&apos;re
-        looking for and our sourcing team will find it, wherever it is, and get it shipped
-        to you.
-      </p>
+      <Reveal>
+        <h1 className="text-3xl font-bold text-foreground">Buy For Me</h1>
+        <p className="mt-2 text-base text-muted-foreground">
+          Can&apos;t find your dream car in our current inventory? Tell us what you&apos;re
+          looking for and our sourcing team will find it, wherever it is, and get it shipped
+          to you.
+        </p>
 
-      {submitted && (
-        <div className="mt-6 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-base text-foreground">
-          Thanks! Your request is in. Our sourcing team will review it and reach out soon.
-        </div>
-      )}
+        {submitted && (
+          <div className="mt-6 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-base text-foreground">
+            Thanks! Your request is in. Our sourcing team will review it and reach out soon.
+          </div>
+        )}
+      </Reveal>
 
+      <Reveal delay={0.1}>
       <form action={submitConciergeRequest} className="mt-8 flex flex-col gap-5">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div className="flex flex-col gap-1.5">
@@ -183,6 +187,7 @@ export default async function BuyForMePage({ searchParams }: BuyForMePageProps) 
           Submit Request
         </Button>
       </form>
+      </Reveal>
     </div>
   );
 }

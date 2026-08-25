@@ -4,6 +4,10 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PromoBanner } from "@/components/marketing/PromoBanner";
 import { ChatWidget } from "@/components/chat/ChatWidget";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { PageTransition } from "@/components/motion/PageTransition";
+import { CurrencyProvider } from "@/components/currency/CurrencyProvider";
+import { LanguageProvider } from "@/components/i18n/LanguageProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,11 +33,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <PromoBanner />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <ChatWidget />
+        <LanguageProvider>
+          <CurrencyProvider>
+            <ScrollProgress />
+            <PromoBanner />
+            <Header />
+            <main className="flex-1">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <Footer />
+            <ChatWidget />
+          </CurrencyProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

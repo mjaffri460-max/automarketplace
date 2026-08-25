@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Reveal } from "@/components/motion/Reveal";
 import { sendContactMessage } from "./actions";
 
 interface ContactPageProps {
@@ -13,18 +14,21 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-bold text-foreground">Contact Us</h1>
-      <p className="mt-2 text-base text-muted-foreground">
-        Questions about a car, an order, or a service booking? Send us a message and
-        we&apos;ll get back to you.
-      </p>
+      <Reveal>
+        <h1 className="text-3xl font-bold text-foreground">Contact Us</h1>
+        <p className="mt-2 text-base text-muted-foreground">
+          Questions about a car, an order, or a service booking? Send us a message and
+          we&apos;ll get back to you.
+        </p>
 
-      {sent && (
-        <div className="mt-6 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-base text-emerald-800">
-          Thanks for reaching out! We&apos;ve received your message and will respond soon.
-        </div>
-      )}
+        {sent && (
+          <div className="mt-6 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-base text-emerald-400">
+            Thanks for reaching out! We&apos;ve received your message and will respond soon.
+          </div>
+        )}
+      </Reveal>
 
+      <Reveal delay={0.1}>
       <form action={sendContactMessage} className="mt-8 flex flex-col gap-5">
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="name">Name</Label>
@@ -50,6 +54,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           Send Message
         </Button>
       </form>
+      </Reveal>
     </div>
   );
 }

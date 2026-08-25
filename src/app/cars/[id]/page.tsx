@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { PriceComparison } from "@/components/marketing/PriceComparison";
+import { Reveal } from "@/components/motion/Reveal";
+import { Price } from "@/components/currency/Price";
+import { FinancingEstimate } from "@/components/vehicles/FinancingEstimate";
 
 interface CarDetailPageProps {
   params: Promise<{ id: string }>;
@@ -32,38 +35,49 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
       </Link>
 
       <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2">
-        <div className="flex flex-col gap-4">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted">
+        <Reveal direction="left" className="flex flex-col gap-4">
+          <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted">
             <Image
               src={car.imageUrl}
               alt={`${car.year} ${car.make} ${car.model}`}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+              className="object-cover transition duration-500 group-hover:scale-105"
               priority
             />
           </div>
           {car.images.length > 1 && (
             <div className="grid grid-cols-3 gap-3">
               {car.images.map((image) => (
-                <div key={image} className="relative aspect-[4/3] overflow-hidden rounded-lg bg-muted">
-                  <Image src={image} alt={`${car.model} additional view`} fill sizes="200px" className="object-cover" />
+                <div key={image} className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-muted">
+                  <Image
+                    src={image}
+                    alt={`${car.model} additional view`}
+                    fill
+                    sizes="200px"
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
                 </div>
               ))}
             </div>
           )}
-        </div>
+        </Reveal>
 
-        <div className="flex flex-col gap-4">
+        <Reveal direction="right" delay={0.1} className="flex flex-col gap-4">
           <Badge className="w-fit bg-muted text-foreground">{conditionLabel[car.condition]}</Badge>
           <h1 className="text-3xl font-bold text-foreground">
             {car.year} {car.make} {car.model}
           </h1>
           {car.trim && <p className="text-lg text-muted-foreground">{car.trim}</p>}
-          <p className="text-4xl font-bold text-foreground">${car.price.toLocaleString()}</p>
+          <p className="text-4xl font-bold text-foreground">
+            <Price usd={car.price} />
+          </p>
           <p className="text-base text-muted-foreground">
-            Plus estimated shipping: ${car.shippingCost.toLocaleString()} &middot; Arrives in
-            about {car.estimatedShippingDays} days
+            Plus estimated shipping: <Price usd={car.shippingCost} /> &middot; Arrives in about{" "}
+            {car.estimatedShippingDays} days
+          </p>
+          <p className="text-base font-semibold text-foreground">
+            Total once shipped: <Price usd={car.price + car.shippingCost} />
           </p>
 
           <Separator />
@@ -113,10 +127,19 @@ export default async function CarDetailPage({ params }: CarDetailPageProps) {
             <Button render={<Link href="/services" />} size="lg" variant="outline" className="text-base">
               Add Warranty or Insurance
             </Button>
+            <Button
+              render={<Link href={`/visit/car/${car.id}`} />}
+              size="lg"
+              variant="outline"
+              className="text-base"
+            >
+              Book a Visit / Test Drive
+            </Button>
           </div>
 
           <PriceComparison ourPrice={car.price} competitorPrices={car.competitorPrices} />
-        </div>
+          <FinancingEstimate price={car.price} />
+        </Reveal>
       </div>
     </div>
   );

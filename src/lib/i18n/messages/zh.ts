@@ -1,0 +1,56 @@
+import type { Messages } from "./types";
+
+export const zh: Messages = {
+  nav: {
+    cars: "汽车",
+    powersports: "摩托车与水上摩托",
+    findMyCar: "为我找车",
+    sellTradeIn: "出售/置换",
+    buyForMe: "代购服务",
+    services: "服务",
+    findDealer: "查找经销商",
+    reviews: "评价",
+    contact: "联系我们",
+  },
+  header: {
+    signIn: "登录",
+    myAccount: "我的账户",
+    browseCars: "浏览汽车",
+    account: "账户",
+  },
+  hero: {
+    badge: "实时库存 · 覆盖10个国家 · 全球配送",
+    headline: "无论您梦想的座驾在哪里，",
+    headlineAccent: "我们都能为您运送到家。",
+    subtext:
+      "浏览来自世界各地的汽车、摩托车和水上摩托车，只需几个简单步骤即可在线下单，剩下的交给我们——包括保修、保养、保险和配送。",
+    browseCars: "浏览汽车",
+    explorePowersports: "探索摩托车与水上摩托",
+  },
+  trustBar: {
+    vehiclesLive: "当前在售车辆",
+    countriesShip: "配送覆盖国家",
+    customerRating: "客户评分",
+    aiAssistant: "AI购车助手",
+  },
+  footer: {
+    tagline: "在线订购您梦想中的座驾，直接配送到家——保修、保养、保险和服务预约，一站式解决。",
+    shop: "购车",
+    company: "公司",
+    buyAndSell: "买卖服务",
+    support: "支持",
+    browseCars: "浏览汽车",
+    powersports: "摩托车与水上摩托",
+    services: "服务",
+    ourStory: "我们的故事",
+    careers: "招聘",
+    reviews: "评价",
+    sellTradeIn: "出售/置换",
+    buyForMe: "代购服务",
+    supplierPortal: "供应商入口",
+    shipping: "运输与配送",
+    findDealer: "查找经销商",
+    contactUs: "联系我们",
+    rights: "保留所有权利。",
+  },
+};

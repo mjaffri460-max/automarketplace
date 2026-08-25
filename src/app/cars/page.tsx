@@ -1,6 +1,7 @@
 import { searchCars, getMakes } from "@/data/cars";
 import { CarGrid } from "@/components/cars/CarGrid";
 import { CarFilters } from "@/components/cars/CarFilters";
+import { Reveal } from "@/components/motion/Reveal";
 import type { CarCategory, CarCondition } from "@/types";
 
 interface CarsPageProps {
@@ -27,23 +28,27 @@ export default async function CarsPage({ searchParams }: CarsPageProps) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <h1 className="text-3xl font-bold text-foreground">Browse Cars</h1>
-      <p className="mt-2 text-base text-muted-foreground">
-        {cars.length} {cars.length === 1 ? "car" : "cars"} available
-      </p>
+      <Reveal>
+        <h1 className="text-3xl font-bold text-foreground">Browse Cars</h1>
+        <p className="mt-2 text-base text-muted-foreground">
+          {cars.length} {cars.length === 1 ? "car" : "cars"} available
+        </p>
+      </Reveal>
 
-      <div className="mt-6">
-        <CarFilters
-          makes={makes}
-          defaultValues={{
-            query: params.query,
-            make: params.make,
-            condition: params.condition,
-            category: params.category,
-            maxPrice: params.maxPrice,
-          }}
-        />
-      </div>
+      <Reveal delay={0.1}>
+        <div className="mt-6">
+          <CarFilters
+            makes={makes}
+            defaultValues={{
+              query: params.query,
+              make: params.make,
+              condition: params.condition,
+              category: params.category,
+              maxPrice: params.maxPrice,
+            }}
+          />
+        </div>
+      </Reveal>
 
       <div className="mt-8">
         <CarGrid cars={cars} />

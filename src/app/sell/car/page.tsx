@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { PhotoUpload360 } from "@/components/vehicles/PhotoUpload360";
+import { Reveal } from "@/components/motion/Reveal";
 import { submitCarListing } from "./actions";
 
 interface SellCarPageProps {
@@ -26,24 +27,26 @@ export default async function SellCarPage({ searchParams }: SellCarPageProps) {
   if (submitted) {
     return (
       <div className="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6">
-        <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-          Listing Submitted
-        </p>
-        <h1 className="mt-2 text-3xl font-bold text-foreground">
-          Thanks — we&apos;re reviewing your car
-        </h1>
-        <p className="mt-3 text-base text-muted-foreground">
-          Our team will review your listing and reach out with next steps. You can track its
-          status from your account.
-        </p>
-        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <Button render={<Link href="/account" />} size="lg" className="text-base">
-            Go to My Account
-          </Button>
-          <Button render={<Link href="/sell" />} size="lg" variant="outline" className="text-base">
-            Back to Sell / Trade-In
-          </Button>
-        </div>
+        <Reveal>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+            Listing Submitted
+          </p>
+          <h1 className="mt-2 text-3xl font-bold text-foreground">
+            Thanks — we&apos;re reviewing your car
+          </h1>
+          <p className="mt-3 text-base text-muted-foreground">
+            Our team will review your listing and reach out with next steps. You can track its
+            status from your account.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button render={<Link href="/account" />} size="lg" className="text-base">
+              Go to My Account
+            </Button>
+            <Button render={<Link href="/sell" />} size="lg" variant="outline" className="text-base">
+              Back to Sell / Trade-In
+            </Button>
+          </div>
+        </Reveal>
       </div>
     );
   }
@@ -53,12 +56,15 @@ export default async function SellCarPage({ searchParams }: SellCarPageProps) {
       <Link href="/sell" className="text-base font-medium text-muted-foreground hover:text-foreground">
         &larr; Back
       </Link>
-      <h1 className="mt-4 text-3xl font-bold text-foreground">Sell Your Car</h1>
-      <p className="mt-2 text-base text-muted-foreground">
-        Tell us about your car and add photos. Our team reviews every listing before it goes
-        live to buyers.
-      </p>
+      <Reveal>
+        <h1 className="mt-4 text-3xl font-bold text-foreground">Sell Your Car</h1>
+        <p className="mt-2 text-base text-muted-foreground">
+          Tell us about your car and add photos. Our team reviews every listing before it goes
+          live to buyers.
+        </p>
+      </Reveal>
 
+      <Reveal delay={0.1} as="div">
       <form action={submitCarListing} className="mt-8 flex flex-col gap-5">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div className="flex flex-col gap-1.5">
@@ -176,17 +182,20 @@ export default async function SellCarPage({ searchParams }: SellCarPageProps) {
           </div>
         </div>
 
-        <div className="mt-2 rounded-xl border bg-card p-5">
-          <h2 className="text-xl font-semibold text-foreground">360° Photos</h2>
-          <div className="mt-3">
-            <PhotoUpload360 />
+        <Reveal delay={0.15}>
+          <div className="mt-2 rounded-xl border bg-card p-5">
+            <h2 className="text-xl font-semibold text-foreground">360° Photos</h2>
+            <div className="mt-3">
+              <PhotoUpload360 />
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         <Button type="submit" size="lg" className="mt-2 text-base">
           Submit Listing
         </Button>
       </form>
+      </Reveal>
     </div>
   );
 }

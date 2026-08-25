@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { mapPowersportRow, type PowersportRow } from "@/lib/mappers/car";
 import { PowersportCard } from "@/components/powersports/PowersportCard";
+import { Reveal } from "@/components/motion/Reveal";
 import type { Powersport } from "@/types";
 
 export function PowersportGrid({ items: initialItems }: { items: Powersport[] }) {
@@ -18,9 +19,10 @@ export function PowersportGrid({ items: initialItems }: { items: Powersport[] })
 
   useEffect(() => {
     const supabase = createClient();
+    const channelName = `powersports-live-${Math.random().toString(36).slice(2)}`;
 
     const channel = supabase
-      .channel("powersports-live")
+      .channel(channelName)
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "powersports" },
@@ -64,8 +66,10 @@ export function PowersportGrid({ items: initialItems }: { items: Powersport[] })
         </p>
       ) : (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((item) => (
-            <PowersportCard key={item.id} item={item} />
+          {items.map((item, index) => (
+            <Reveal key={item.id} index={index}>
+              <PowersportCard item={item} />
+            </Reveal>
           ))}
         </div>
       )}

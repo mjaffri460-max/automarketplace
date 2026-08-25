@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Reveal } from "@/components/motion/Reveal";
 import { signup } from "./actions";
 
 interface SignupPageProps {
@@ -13,17 +14,20 @@ export default async function SignupPage({ searchParams }: SignupPageProps) {
 
   return (
     <div className="mx-auto max-w-md px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-bold text-foreground">Create Account</h1>
-      <p className="mt-2 text-base text-muted-foreground">
-        Create an account to buy, sell, trade in, or request a car we source for you.
-      </p>
+      <Reveal>
+        <h1 className="text-3xl font-bold text-foreground">Create Account</h1>
+        <p className="mt-2 text-base text-muted-foreground">
+          Create an account to buy, sell, trade in, or request a car we source for you.
+        </p>
 
-      {error && (
-        <div className="mt-6 rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-base text-destructive">
-          {error}
-        </div>
-      )}
+        {error && (
+          <div className="mt-6 rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-base text-destructive">
+            {error}
+          </div>
+        )}
+      </Reveal>
 
+      <Reveal delay={0.1} as="div">
       <form action={signup} className="mt-8 flex flex-col gap-5">
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="fullName">Full Name</Label>
@@ -76,6 +80,7 @@ export default async function SignupPage({ searchParams }: SignupPageProps) {
           Sign in
         </Link>
       </p>
+      </Reveal>
     </div>
   );
 }

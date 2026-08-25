@@ -30,9 +30,7 @@ export function ShippingMap({ countries }: { countries: ShippingCountryAvailabil
             <g key={country.code}>
               <circle cx={x} cy={y} r={radius} className="fill-amber-400/25" />
               <circle cx={x} cy={y} r={radius * 0.45} className="fill-amber-400 animate-pulse">
-                <title>
-                  {country.name}: {country.availableVehicles} vehicles available to ship
-                </title>
+                <title>{`${country.name}: ${country.availableVehicles} vehicles available to ship`}</title>
               </circle>
             </g>
           );

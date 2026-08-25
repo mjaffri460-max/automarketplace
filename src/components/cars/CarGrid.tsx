@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { mapCarRow, type CarRow } from "@/lib/mappers/car";
 import { CarCard } from "@/components/cars/CarCard";
+import { Reveal } from "@/components/motion/Reveal";
 import type { Car } from "@/types";
 
 export function CarGrid({ cars: initialCars }: { cars: Car[] }) {
@@ -18,9 +19,10 @@ export function CarGrid({ cars: initialCars }: { cars: Car[] }) {
 
   useEffect(() => {
     const supabase = createClient();
+    const channelName = `cars-live-${Math.random().toString(36).slice(2)}`;
 
     const channel = supabase
-      .channel("cars-live")
+      .channel(channelName)
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "cars" },
@@ -64,8 +66,10 @@ export function CarGrid({ cars: initialCars }: { cars: Car[] }) {
         </p>
       ) : (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {cars.map((car) => (
-            <CarCard key={car.id} car={car} />
+          {cars.map((car, index) => (
+            <Reveal key={car.id} index={index}>
+              <CarCard car={car} />
+            </Reveal>
           ))}
         </div>
       )}

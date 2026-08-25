@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { PhotoUpload360 } from "@/components/vehicles/PhotoUpload360";
+import { Reveal } from "@/components/motion/Reveal";
 import { applyAsSupplier, submitSupplierListing } from "./actions";
 
 const selectClassName =
@@ -29,48 +30,53 @@ export default async function SupplierPage({ searchParams }: SupplierPageProps) 
   if (!profile || profile.role !== "supplier") {
     return (
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-        <h1 className="text-3xl font-bold text-foreground">Supplier Portal</h1>
-        <p className="mt-2 text-base text-muted-foreground">
-          Have access to cars, motorcycles, or jet skis you can import or export? Apply as a
-          supplier to submit vehicles for AutoMarketplace to list, buy, or help move across
-          borders.
-        </p>
-        <form action={applyAsSupplier} className="mt-8">
-          <Button type="submit" size="lg" className="text-base">
-            Apply as a Supplier
-          </Button>
-        </form>
+        <Reveal>
+          <h1 className="text-3xl font-bold text-foreground">Supplier Portal</h1>
+          <p className="mt-2 text-base text-muted-foreground">
+            Have access to cars, motorcycles, or jet skis you can import or export? Apply as a
+            supplier to submit vehicles for AutoMarketplace to list, buy, or help move across
+            borders.
+          </p>
+          <form action={applyAsSupplier} className="mt-8">
+            <Button type="submit" size="lg" className="text-base">
+              Apply as a Supplier
+            </Button>
+          </form>
+        </Reveal>
       </div>
     );
   }
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-bold text-foreground">Supplier Portal</h1>
-      <p className="mt-2 text-base text-muted-foreground">
-        Submit a vehicle you can export to us, or a vehicle you need imported for a buyer.
-      </p>
+      <Reveal>
+        <h1 className="text-3xl font-bold text-foreground">Supplier Portal</h1>
+        <p className="mt-2 text-base text-muted-foreground">
+          Submit a vehicle you can export to us, or a vehicle you need imported for a buyer.
+        </p>
 
-      {profile.supplierStatus === "pending" && (
-        <div className="mt-6 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-base text-foreground">
-          Your supplier application is under review — you can still submit cars for
-          consideration while we finish reviewing your account.
-        </div>
-      )}
+        {profile.supplierStatus === "pending" && (
+          <div className="mt-6 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-base text-foreground">
+            Your supplier application is under review — you can still submit cars for
+            consideration while we finish reviewing your account.
+          </div>
+        )}
 
-      {profile.supplierStatus === "rejected" && (
-        <div className="mt-6 rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-base text-destructive">
-          Your supplier application wasn&apos;t approved. You can still submit cars below —
-          our team reviews each submission individually.
-        </div>
-      )}
+        {profile.supplierStatus === "rejected" && (
+          <div className="mt-6 rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-base text-destructive">
+            Your supplier application wasn&apos;t approved. You can still submit cars below —
+            our team reviews each submission individually.
+          </div>
+        )}
 
-      {submitted && (
-        <div className="mt-6 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-base text-foreground">
-          Submission received! Our sourcing team will review it shortly.
-        </div>
-      )}
+        {submitted && (
+          <div className="mt-6 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-base text-foreground">
+            Submission received! Our sourcing team will review it shortly.
+          </div>
+        )}
+      </Reveal>
 
+      <Reveal delay={0.1}>
       <form action={submitSupplierListing} className="mt-8 flex flex-col gap-5">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div className="flex flex-col gap-1.5">
@@ -166,7 +172,9 @@ export default async function SupplierPage({ searchParams }: SupplierPageProps) 
           </div>
         </div>
 
-        <PhotoUpload360 />
+        <Reveal delay={0.15}>
+          <PhotoUpload360 />
+        </Reveal>
 
         <div className="flex flex-col gap-1.5">
           <Label htmlFor="notes">Notes (optional)</Label>
@@ -183,6 +191,7 @@ export default async function SupplierPage({ searchParams }: SupplierPageProps) 
           Submit Vehicle
         </Button>
       </form>
+      </Reveal>
     </div>
   );
 }

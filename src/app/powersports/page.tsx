@@ -1,5 +1,6 @@
 import { searchPowersports } from "@/data/powersports";
 import { PowersportGrid } from "@/components/powersports/PowersportGrid";
+import { Reveal } from "@/components/motion/Reveal";
 import type { PowersportType } from "@/types";
 
 const typeOptions: { value: PowersportType; label: string }[] = [
@@ -21,12 +22,15 @@ export default async function PowersportsPage({ searchParams }: PowersportsPageP
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <h1 className="text-3xl font-bold text-foreground">Motorcycles, Dirt Bikes &amp; Jet Skis</h1>
-      <p className="mt-2 text-base text-muted-foreground">
-        {items.length} {items.length === 1 ? "listing" : "listings"} available to order and ship.
-      </p>
+      <Reveal>
+        <h1 className="text-3xl font-bold text-foreground">Motorcycles, Dirt Bikes &amp; Jet Skis</h1>
+        <p className="mt-2 text-base text-muted-foreground">
+          {items.length} {items.length === 1 ? "listing" : "listings"} available to order and ship.
+        </p>
+      </Reveal>
 
-      <form method="get" className="mt-6 flex flex-wrap items-end gap-4 rounded-xl border bg-card p-4">
+      <Reveal delay={0.1} as="div" className="mt-6">
+      <form method="get" className="flex flex-wrap items-end gap-4 rounded-xl border bg-card p-4">
         <div className="flex flex-col gap-1">
           <label htmlFor="query" className="text-sm font-medium text-foreground/90">
             Search
@@ -65,6 +69,7 @@ export default async function PowersportsPage({ searchParams }: PowersportsPageP
           Search
         </button>
       </form>
+      </Reveal>
 
       <div className="mt-8">
         <PowersportGrid items={items} />

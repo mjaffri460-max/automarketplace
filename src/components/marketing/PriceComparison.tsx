@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { Price } from "@/components/currency/Price";
 import type { CompetitorPrice } from "@/types";
 
 interface PriceComparisonProps {
@@ -19,11 +20,11 @@ export function PriceComparison({ ourPrice, competitorPrices }: PriceComparisonP
     <div className="rounded-xl border bg-card p-6">
       <div className="flex items-center justify-between">
         <p className="text-lg font-semibold text-foreground">Price Comparison</p>
-        {savings > 0 && <Badge className="bg-emerald-100 text-emerald-800">Best Price</Badge>}
+        {savings > 0 && <Badge className="bg-emerald-500/15 text-emerald-400">Best Price</Badge>}
       </div>
       {savings > 0 && (
-        <p className="mt-1 text-sm text-emerald-700">
-          You save up to ${savings.toLocaleString()} compared to other marketplaces.
+        <p className="mt-1 text-sm text-emerald-400">
+          You save up to <Price usd={savings} /> compared to other marketplaces.
         </p>
       )}
 
@@ -36,7 +37,9 @@ export function PriceComparison({ ourPrice, competitorPrices }: PriceComparisonP
             }`}
           >
             <span className="font-medium">{row.siteName}</span>
-            <span className="font-semibold">${row.price.toLocaleString()}</span>
+            <span className="font-semibold">
+              <Price usd={row.price} />
+            </span>
           </li>
         ))}
       </ul>

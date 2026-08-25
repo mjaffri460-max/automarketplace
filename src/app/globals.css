@@ -128,3 +128,74 @@
     @apply font-sans;
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Futuristic ambient background: a faint drifting radial glow behind hero sections */
+.glow-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-field::before,
+.glow-field::after {
+  content: "";
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  max-width: 640px;
+  max-height: 640px;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.8 0.15 84 / 0.22), transparent 70%);
+  filter: blur(10px);
+}
+
+.glow-field::before {
+  top: -18%;
+  left: -8%;
+  animation: drift-a 22s ease-in-out infinite;
+}
+
+.glow-field::after {
+  bottom: -22%;
+  right: -10%;
+  background: radial-gradient(circle, oklch(0.66 0.02 70 / 0.2), transparent 70%);
+  animation: drift-b 26s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-field::before,
+  .glow-field::after {
+    animation: none;
+  }
+}
+
+@keyframes drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4%, 6%) scale(1.08); }
+}
+
+@keyframes drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-5%, -4%) scale(1.1); }
+}
+
+/* Faint circuit-style grid overlay for a futuristic surface texture */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}

@@ -8,6 +8,7 @@ import { OrderSummary } from "@/components/order/OrderSummary";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Reveal } from "@/components/motion/Reveal";
 import { placeOrder } from "./actions";
 
 interface OrderPageProps {
@@ -51,23 +52,25 @@ export default async function OrderPage({ params, searchParams }: OrderPageProps
 
     return (
       <div className="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6">
-        <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-          Order {order.status === "confirmed" ? "Confirmed" : "Received"}
-        </p>
-        <h1 className="mt-2 text-3xl font-bold text-foreground">Thank you for your order!</h1>
-        <p className="mt-3 text-base text-muted-foreground">
-          Order <span className="font-semibold text-foreground">{order.orderId}</span> for your{" "}
-          {order.vehicleSummary} has been received — total ${order.totalPrice.toLocaleString()}.
-        </p>
-        <p className="mt-2 text-base text-muted-foreground">{paymentMessage}</p>
-        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <Button render={<Link href="/services" />} size="lg" className="text-base">
-            Book Warranty, Maintenance, or Insurance
-          </Button>
-          <Button render={<Link href="/cars" />} size="lg" variant="outline" className="text-base">
-            Browse More Vehicles
-          </Button>
-        </div>
+        <Reveal>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+            Order {order.status === "confirmed" ? "Confirmed" : "Received"}
+          </p>
+          <h1 className="mt-2 text-3xl font-bold text-foreground">Thank you for your order!</h1>
+          <p className="mt-3 text-base text-muted-foreground">
+            Order <span className="font-semibold text-foreground">{order.orderId}</span> for your{" "}
+            {order.vehicleSummary} has been received — total ${order.totalPrice.toLocaleString()}.
+          </p>
+          <p className="mt-2 text-base text-muted-foreground">{paymentMessage}</p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button render={<Link href="/services" />} size="lg" className="text-base">
+              Book Warranty, Maintenance, or Insurance
+            </Button>
+            <Button render={<Link href="/cars" />} size="lg" variant="outline" className="text-base">
+              Browse More Vehicles
+            </Button>
+          </div>
+        </Reveal>
       </div>
     );
   }
@@ -85,7 +88,8 @@ export default async function OrderPage({ params, searchParams }: OrderPageProps
       </p>
 
       <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-3">
-        <form action={placeOrderForVehicle} className="flex flex-col gap-5 lg:col-span-2">
+        <Reveal direction="left" className="lg:col-span-2">
+        <form action={placeOrderForVehicle} className="flex flex-col gap-5">
           <div className="flex flex-col gap-1.5">
             <Label htmlFor="fullName">Full Name</Label>
             <Input id="fullName" name="fullName" required placeholder="Jordan Smith" className="h-11 text-base" />
@@ -156,10 +160,11 @@ export default async function OrderPage({ params, searchParams }: OrderPageProps
             Confirm Order
           </Button>
         </form>
+        </Reveal>
 
-        <div>
+        <Reveal direction="right" delay={0.1}>
           <OrderSummary vehicle={vehicle} />
-        </div>
+        </Reveal>
       </div>
     </div>
   );
