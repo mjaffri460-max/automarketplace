@@ -21,12 +21,8 @@ function pick(formData: FormData, keys: string[]): Record<string, string> {
 
 export async function submitTradeInRequest(formData: FormData) {
   const supabase = await createClient();
-  const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) {
-    redirect("/login");
-  }
 
-  const photos = await collectVehiclePhotos(supabase, userData.user.id, "trade-ins", formData);
+  const photos = await collectVehiclePhotos(supabase, "trade-ins", formData);
 
   await createTradeInRequest({
     make: String(formData.get("make") ?? ""),

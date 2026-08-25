@@ -7,17 +7,8 @@ import { createCarListing } from "@/data/carListings";
 
 export async function submitCarListing(formData: FormData) {
   const supabase = await createClient();
-  const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) {
-    redirect("/login");
-  }
 
-  const photos = await collectVehiclePhotos(
-    supabase,
-    userData.user.id,
-    "car-listings",
-    formData
-  );
+  const photos = await collectVehiclePhotos(supabase, "car-listings", formData);
 
   await createCarListing({
     make: String(formData.get("make") ?? ""),

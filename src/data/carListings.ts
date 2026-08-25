@@ -44,30 +44,46 @@ function mapCarListing(row: CarListingRow): CarListing {
 export async function createCarListing(request: CarListingRequest): Promise<CarListing> {
   const supabase = await createClient();
   const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) throw new Error("You must be signed in to list a car.");
+  const id = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
 
-  const { data, error } = await supabase
-    .from("car_listings")
-    .insert({
-      user_id: userData.user.id,
-      make: request.make,
-      model: request.model,
-      year: request.year,
-      mileage: request.mileage,
-      condition: request.condition,
-      color: request.color,
-      description: request.description,
-      asking_price: request.askingPrice,
-      currency: request.currency,
-      country: request.country,
-      location: request.location,
-      images: request.images,
-    })
-    .select("*")
-    .single();
+  const { error } = await supabase.from("car_listings").insert({
+    id,
+    user_id: userData.user?.id ?? null,
+    make: request.make,
+    model: request.model,
+    year: request.year,
+    mileage: request.mileage,
+    condition: request.condition,
+    color: request.color,
+    description: request.description,
+    asking_price: request.askingPrice,
+    currency: request.currency,
+    country: request.country,
+    location: request.location,
+    images: request.images,
+  });
 
   if (error) throw error;
-  return mapCarListing(data as CarListingRow);
+
+  return {
+    id,
+    userId: userData.user?.id ?? "",
+    make: request.make,
+    model: request.model,
+    year: request.year,
+    mileage: request.mileage,
+    condition: request.condition,
+    color: request.color,
+    description: request.description,
+    askingPrice: request.askingPrice,
+    currency: request.currency,
+    country: request.country,
+    location: request.location,
+    images: request.images,
+    status: "pending",
+    createdAt,
+  };
 }
 
 export async function getMyCarListings(): Promise<CarListing[]> {

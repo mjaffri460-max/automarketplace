@@ -28,7 +28,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
   const { data: userData } = await supabase.auth.getUser();
 
   if (!userData.user) {
-    redirect("/login");
+    redirect("/");
   }
 
   const [profile, orders, bookings, listings, tradeIns, concierge, supplierSubmissions, visitRequests] =

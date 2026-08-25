@@ -44,29 +44,44 @@ export async function createSupplierSubmission(
 ): Promise<SupplierSubmission> {
   const supabase = await createClient();
   const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) throw new Error("You must be signed in to submit a car.");
+  const id = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
 
-  const { data, error } = await supabase
-    .from("supplier_submissions")
-    .insert({
-      supplier_id: userData.user.id,
-      make: input.make,
-      model: input.model,
-      year: input.year,
-      mileage: input.mileage,
-      condition: input.condition,
-      asking_price: input.askingPrice,
-      currency: input.currency,
-      source_country: input.sourceCountry,
-      export_or_import: input.exportOrImport,
-      images: input.images,
-      notes: input.notes,
-    })
-    .select("*")
-    .single();
+  const { error } = await supabase.from("supplier_submissions").insert({
+    id,
+    supplier_id: userData.user?.id ?? null,
+    make: input.make,
+    model: input.model,
+    year: input.year,
+    mileage: input.mileage,
+    condition: input.condition,
+    asking_price: input.askingPrice,
+    currency: input.currency,
+    source_country: input.sourceCountry,
+    export_or_import: input.exportOrImport,
+    images: input.images,
+    notes: input.notes,
+  });
 
   if (error) throw error;
-  return mapSupplierSubmission(data as SupplierSubmissionRow);
+
+  return {
+    id,
+    supplierId: userData.user?.id ?? "",
+    make: input.make,
+    model: input.model,
+    year: input.year,
+    mileage: input.mileage,
+    condition: input.condition,
+    askingPrice: input.askingPrice,
+    currency: input.currency,
+    sourceCountry: input.sourceCountry,
+    exportOrImport: input.exportOrImport,
+    images: input.images,
+    notes: input.notes,
+    status: "pending",
+    createdAt,
+  };
 }
 
 export async function getMySupplierSubmissions(): Promise<SupplierSubmission[]> {

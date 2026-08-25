@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -72,12 +70,6 @@ const SECTIONS: Section[] = [
 ];
 
 export default async function TradeInPage({ searchParams }: TradeInPageProps) {
-  const supabase = await createClient();
-  const { data } = await supabase.auth.getUser();
-  if (!data.user) {
-    redirect("/login");
-  }
-
   const { submitted } = await searchParams;
 
   if (submitted) {
@@ -95,11 +87,11 @@ export default async function TradeInPage({ searchParams }: TradeInPageProps) {
             1-2 business days. You can track its status from your account.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button render={<Link href="/account" />} size="lg" className="text-base">
-              Go to My Account
-            </Button>
-            <Button render={<Link href="/sell" />} size="lg" variant="outline" className="text-base">
+            <Button render={<Link href="/sell" />} size="lg" className="text-base">
               Back to Sell / Trade-In
+            </Button>
+            <Button render={<Link href="/cars" />} size="lg" variant="outline" className="text-base">
+              Browse Cars
             </Button>
           </div>
         </Reveal>

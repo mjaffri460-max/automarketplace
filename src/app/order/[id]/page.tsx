@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { getCar } from "@/data/cars";
 import { getPowersport } from "@/data/powersports";
 import { getCargoTruck } from "@/data/cargoTrucks";
 import { getYacht } from "@/data/yachts";
 import { getOrder } from "@/data/orders";
-import { createClient } from "@/lib/supabase/server";
 import { OrderSummary } from "@/components/order/OrderSummary";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,12 +37,6 @@ export default async function OrderPage({ params, searchParams }: OrderPageProps
       : cargoTruck
         ? `/cargo-trucks/${vehicle.id}`
         : `/yachts/${vehicle.id}`;
-
-  const supabase = await createClient();
-  const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) {
-    redirect("/login");
-  }
 
   if (orderId) {
     const order = await getOrder(orderId);

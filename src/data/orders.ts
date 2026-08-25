@@ -45,7 +45,6 @@ function siteUrl() {
 export async function createOrder(request: OrderRequest): Promise<OrderConfirmation> {
   const supabase = await createClient();
   const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) throw new Error("You must be signed in to place an order.");
 
   const car = await getCar(request.vehicleId);
   const vehicle =
@@ -60,28 +59,11 @@ export async function createOrder(request: OrderRequest): Promise<OrderConfirmat
 
   const totalPrice = vehicle.price + vehicle.shippingCost;
   const vehicleSummary = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
+  const orderId = `ord-${crypto.randomUUID()}`;
 
-  const { data, error } = await supabase
-    .from("orders")
-    .insert({
-      user_id: userData.user.id,
-      vehicle_id: vehicle.id,
-      vehicle_summary: vehicleSummary,
-      total_price: totalPrice,
-      currency: vehicle.currency,
-      estimated_delivery_days: vehicle.estimatedShippingDays,
-      shipping_address: request.shippingAddress,
-      notes: request.notes,
-      payment_method: request.paymentMethod,
-    })
-    .select("id")
-    .single();
-
-  if (error) throw error;
-
-  const orderId: string = data.id;
   let checkoutUrl: string | undefined;
   let paymentStatus: PaymentStatus = "unpaid";
+  let stripeSessionId: string | undefined;
 
   // Finance/lease purchases aren't charged through us — they're a lead our
   // team follows up on with financing partners. Only cash purchases collect
@@ -106,20 +88,37 @@ export async function createOrder(request: OrderRequest): Promise<OrderConfirmat
       metadata: { orderId },
     });
 
+    checkoutUrl = session.url ?? undefined;
+    paymentStatus = "processing";
+    stripeSessionId = session.id;
+  }
+
+  const { error } = await supabase.from("orders").insert({
+    id: orderId,
+    user_id: userData.user?.id ?? null,
+    vehicle_id: vehicle.id,
+    vehicle_summary: vehicleSummary,
+    total_price: totalPrice,
+    currency: vehicle.currency,
+    estimated_delivery_days: vehicle.estimatedShippingDays,
+    shipping_address: request.shippingAddress,
+    notes: request.notes,
+    payment_method: request.paymentMethod,
+    payment_status: paymentStatus,
+  });
+
+  if (error) throw error;
+
+  if (stripeSessionId) {
     const { error: paymentError } = await supabase.from("payments").insert({
       order_id: orderId,
-      user_id: userData.user.id,
+      user_id: userData.user?.id ?? null,
       amount: totalPrice,
       currency: vehicle.currency,
-      stripe_session_id: session.id,
+      stripe_session_id: stripeSessionId,
       status: "pending",
     });
     if (paymentError) throw paymentError;
-
-    checkoutUrl = session.url ?? undefined;
-    paymentStatus = "processing";
-
-    await supabase.from("orders").update({ payment_status: paymentStatus }).eq("id", orderId);
   }
 
   return {
@@ -138,14 +137,11 @@ export async function createOrder(request: OrderRequest): Promise<OrderConfirmat
 
 export async function getOrder(orderId: string): Promise<Order | null> {
   const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("orders")
-    .select("*")
-    .eq("id", orderId)
-    .maybeSingle();
+  const { data, error } = await supabase.rpc("get_order_by_id", { p_order_id: orderId });
 
   if (error) throw error;
-  return data ? mapOrder(data as OrderRow) : null;
+  const row = (data as OrderRow[] | null)?.[0];
+  return row ? mapOrder(row) : null;
 }
 
 export async function getMyOrders(): Promise<Order[]> {

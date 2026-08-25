@@ -42,28 +42,42 @@ export async function createConciergeRequest(
 ): Promise<ConciergeRequest> {
   const supabase = await createClient();
   const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) throw new Error("You must be signed in to submit a sourcing request.");
+  const id = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
 
-  const { data, error } = await supabase
-    .from("concierge_requests")
-    .insert({
-      user_id: userData.user.id,
-      make: input.make,
-      model: input.model,
-      year_min: input.yearMin,
-      year_max: input.yearMax,
-      budget_min: input.budgetMin,
-      budget_max: input.budgetMax,
-      currency: input.currency,
-      category: input.category,
-      destination_country: input.destinationCountry,
-      notes: input.notes,
-    })
-    .select("*")
-    .single();
+  const { error } = await supabase.from("concierge_requests").insert({
+    id,
+    user_id: userData.user?.id ?? null,
+    make: input.make,
+    model: input.model,
+    year_min: input.yearMin,
+    year_max: input.yearMax,
+    budget_min: input.budgetMin,
+    budget_max: input.budgetMax,
+    currency: input.currency,
+    category: input.category,
+    destination_country: input.destinationCountry,
+    notes: input.notes,
+  });
 
   if (error) throw error;
-  return mapConciergeRequest(data as ConciergeRow);
+
+  return {
+    id,
+    userId: userData.user?.id ?? "",
+    make: input.make,
+    model: input.model,
+    yearMin: input.yearMin,
+    yearMax: input.yearMax,
+    budgetMin: input.budgetMin,
+    budgetMax: input.budgetMax,
+    currency: input.currency,
+    category: input.category,
+    destinationCountry: input.destinationCountry,
+    notes: input.notes,
+    status: "open",
+    createdAt,
+  };
 }
 
 export async function getMyConciergeRequests(): Promise<ConciergeRequest[]> {

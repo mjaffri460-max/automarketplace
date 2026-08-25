@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { notFound } from "next/navigation";
 import { getCar } from "@/data/cars";
 import { getPowersport } from "@/data/powersports";
 import { getCargoTruck } from "@/data/cargoTrucks";
@@ -26,12 +25,6 @@ export default async function VisitPage({ params, searchParams }: VisitPageProps
     vehicleType !== "yacht"
   ) {
     notFound();
-  }
-
-  const supabase = await createClient();
-  const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) {
-    redirect("/login");
   }
 
   const vehicle =

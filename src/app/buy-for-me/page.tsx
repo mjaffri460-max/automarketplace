@@ -1,5 +1,3 @@
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -41,12 +39,6 @@ interface BuyForMePageProps {
 
 export default async function BuyForMePage({ searchParams }: BuyForMePageProps) {
   const { submitted } = await searchParams;
-
-  const supabase = await createClient();
-  const { data } = await supabase.auth.getUser();
-  if (!data.user) {
-    redirect("/login");
-  }
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">

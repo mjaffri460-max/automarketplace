@@ -72,29 +72,25 @@ export async function getServicesByCategory(category: ServiceCategory): Promise<
 export async function createBooking(request: BookingRequest): Promise<BookingConfirmation> {
   const serverClient = await createClient();
   const { data: userData } = await serverClient.auth.getUser();
-  if (!userData.user) throw new Error("You must be signed in to book a service.");
-
   const service = await getService(request.serviceId);
+  const bookingId = `bk-${crypto.randomUUID()}`;
 
-  const { data, error } = await serverClient
-    .from("bookings")
-    .insert({
-      user_id: userData.user.id,
-      service_id: request.serviceId,
-      service_name: service?.name ?? "Service",
-      full_name: request.fullName,
-      email: request.email,
-      phone: request.phone,
-      preferred_date: request.preferredDate,
-      notes: request.notes,
-    })
-    .select("id")
-    .single();
+  const { error } = await serverClient.from("bookings").insert({
+    id: bookingId,
+    user_id: userData.user?.id ?? null,
+    service_id: request.serviceId,
+    service_name: service?.name ?? "Service",
+    full_name: request.fullName,
+    email: request.email,
+    phone: request.phone,
+    preferred_date: request.preferredDate,
+    notes: request.notes,
+  });
 
   if (error) throw error;
 
   return {
-    bookingId: data.id,
+    bookingId,
     serviceId: request.serviceId,
     serviceName: service?.name ?? "Service",
     preferredDate: request.preferredDate,

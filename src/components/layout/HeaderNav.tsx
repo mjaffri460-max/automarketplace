@@ -5,7 +5,7 @@ import { useLanguage } from "@/components/i18n/LanguageProvider";
 import { CurrencySelector } from "@/components/currency/CurrencySelector";
 import { LanguageSelector } from "@/components/i18n/LanguageSelector";
 
-export function HeaderNav({ isSignedIn }: { isSignedIn: boolean }) {
+export function HeaderNav() {
   const { messages } = useLanguage();
 
   const navLinks = [
@@ -44,12 +44,6 @@ export function HeaderNav({ isSignedIn }: { isSignedIn: boolean }) {
           <LanguageSelector />
           <CurrencySelector />
           <Link
-            href={isSignedIn ? "/account" : "/login"}
-            className="whitespace-nowrap rounded-md border border-primary/30 px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-primary/10"
-          >
-            {isSignedIn ? messages.header.myAccount : messages.header.signIn}
-          </Link>
-          <Link
             href="/cars"
             className="whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
           >
@@ -57,10 +51,10 @@ export function HeaderNav({ isSignedIn }: { isSignedIn: boolean }) {
           </Link>
         </div>
         <Link
-          href={isSignedIn ? "/account" : "/login"}
+          href="/cars"
           className="whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 lg:hidden"
         >
-          {isSignedIn ? messages.header.account : messages.header.signIn}
+          {messages.header.browseCars}
         </Link>
       </div>
       <nav className="flex gap-4 overflow-x-auto border-t px-4 py-2 lg:hidden">

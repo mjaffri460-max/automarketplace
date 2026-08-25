@@ -59,29 +59,43 @@ function mapVisitRequest(row: VisitRequestRow): VisitRequest {
 export async function createVisitRequest(input: VisitRequestInput): Promise<VisitRequest> {
   const supabase = await createClient();
   const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) throw new Error("You must be signed in to book a visit.");
+  const id = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
 
-  const { data, error } = await supabase
-    .from("visit_requests")
-    .insert({
-      user_id: userData.user.id,
-      vehicle_id: input.vehicleId,
-      vehicle_type: input.vehicleType,
-      vehicle_summary: input.vehicleSummary,
-      preferred_date: input.preferredDate,
-      preferred_time: input.preferredTime,
-      wants_travel_help: input.wantsTravelHelp,
-      departure_city: input.departureCity,
-      travel_start_date: input.travelStartDate,
-      travel_end_date: input.travelEndDate,
-      traveler_count: input.travelerCount,
-      notes: input.notes,
-    })
-    .select("*")
-    .single();
+  const { error } = await supabase.from("visit_requests").insert({
+    id,
+    user_id: userData.user?.id ?? null,
+    vehicle_id: input.vehicleId,
+    vehicle_type: input.vehicleType,
+    vehicle_summary: input.vehicleSummary,
+    preferred_date: input.preferredDate,
+    preferred_time: input.preferredTime,
+    wants_travel_help: input.wantsTravelHelp,
+    departure_city: input.departureCity,
+    travel_start_date: input.travelStartDate,
+    travel_end_date: input.travelEndDate,
+    traveler_count: input.travelerCount,
+    notes: input.notes,
+  });
 
   if (error) throw error;
-  return mapVisitRequest(data as VisitRequestRow);
+
+  return {
+    id,
+    vehicleId: input.vehicleId,
+    vehicleType: input.vehicleType,
+    vehicleSummary: input.vehicleSummary,
+    preferredDate: input.preferredDate,
+    preferredTime: input.preferredTime,
+    wantsTravelHelp: input.wantsTravelHelp,
+    departureCity: input.departureCity,
+    travelStartDate: input.travelStartDate,
+    travelEndDate: input.travelEndDate,
+    travelerCount: input.travelerCount,
+    notes: input.notes,
+    status: "requested",
+    createdAt,
+  };
 }
 
 export async function getMyVisitRequests(): Promise<VisitRequest[]> {

@@ -2,14 +2,8 @@
 
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { requestSupplierAccess } from "@/data/profile";
 import { createSupplierSubmission } from "@/data/supplierSubmissions";
 import { collectVehiclePhotos } from "@/lib/storage";
-
-export async function applyAsSupplier() {
-  await requestSupplierAccess();
-  redirect("/supplier");
-}
 
 function toNumber(value: FormDataEntryValue | null): number | undefined {
   if (!value) return undefined;
@@ -19,17 +13,8 @@ function toNumber(value: FormDataEntryValue | null): number | undefined {
 
 export async function submitSupplierListing(formData: FormData) {
   const supabase = await createClient();
-  const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) {
-    redirect("/login");
-  }
 
-  const photos = await collectVehiclePhotos(
-    supabase,
-    userData.user.id,
-    "supplier-submissions",
-    formData
-  );
+  const photos = await collectVehiclePhotos(supabase, "supplier-submissions", formData);
 
   await createSupplierSubmission({
     make: String(formData.get("make") ?? ""),

@@ -42,25 +42,37 @@ export async function createTradeInRequest(
 ): Promise<TradeInRequest> {
   const supabase = await createClient();
   const { data: userData } = await supabase.auth.getUser();
-  if (!userData.user) throw new Error("You must be signed in to request a trade-in.");
+  const id = crypto.randomUUID();
+  const createdAt = new Date().toISOString();
 
-  const { data, error } = await supabase
-    .from("trade_in_requests")
-    .insert({
-      user_id: userData.user.id,
-      make: input.make,
-      model: input.model,
-      year: input.year,
-      mileage: input.mileage,
-      vin: input.vin,
-      condition_answers: input.conditionAnswers,
-      photos: input.photos,
-    })
-    .select("*")
-    .single();
+  const { error } = await supabase.from("trade_in_requests").insert({
+    id,
+    user_id: userData.user?.id ?? null,
+    make: input.make,
+    model: input.model,
+    year: input.year,
+    mileage: input.mileage,
+    vin: input.vin,
+    condition_answers: input.conditionAnswers,
+    photos: input.photos,
+  });
 
   if (error) throw error;
-  return mapTradeIn(data as TradeInRow);
+
+  return {
+    id,
+    userId: userData.user?.id ?? "",
+    make: input.make,
+    model: input.model,
+    year: input.year,
+    mileage: input.mileage,
+    vin: input.vin,
+    conditionAnswers: input.conditionAnswers,
+    photos: input.photos,
+    currency: "USD",
+    status: "submitted",
+    createdAt,
+  };
 }
 
 export async function getMyTradeInRequests(): Promise<TradeInRequest[]> {
