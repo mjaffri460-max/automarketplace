@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Price } from "@/components/currency/Price";
-import type { Car, Powersport } from "@/types";
+import type { Car, Powersport, CargoTruck, Yacht } from "@/types";
 
-export function OrderSummary({ vehicle }: { vehicle: Car | Powersport }) {
+export function OrderSummary({ vehicle }: { vehicle: Car | Powersport | CargoTruck | Yacht }) {
   const total = vehicle.price + vehicle.shippingCost;
   const trim = "trim" in vehicle ? vehicle.trim : undefined;
 

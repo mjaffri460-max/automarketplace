@@ -4,6 +4,8 @@ export const zh: Messages = {
   nav: {
     cars: "汽车",
     powersports: "摩托车与水上摩托",
+    cargoTrucks: "货运卡车",
+    yachts: "游艇",
     findMyCar: "为我找车",
     sellTradeIn: "出售/置换",
     buyForMe: "代购服务",

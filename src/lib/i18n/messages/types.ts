@@ -2,6 +2,8 @@ export interface Messages {
   nav: {
     cars: string;
     powersports: string;
+    cargoTrucks: string;
+    yachts: string;
     findMyCar: string;
     sellTradeIn: string;
     buyForMe: string;

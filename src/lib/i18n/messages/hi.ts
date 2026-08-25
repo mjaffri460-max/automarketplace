@@ -4,6 +4,8 @@ export const hi: Messages = {
   nav: {
     cars: "कारें",
     powersports: "पावरस्पोर्ट्स",
+    cargoTrucks: "कार्गो ट्रक",
+    yachts: "यॉट",
     findMyCar: "मेरी कार खोजें",
     sellTradeIn: "बेचें / ट्रेड-इन",
     buyForMe: "हमसे खरीदवाएं",

@@ -4,6 +4,8 @@ export const ar: Messages = {
   nav: {
     cars: "سيارات",
     powersports: "دراجات نارية ومائية",
+    cargoTrucks: "شاحنات نقل",
+    yachts: "يخوت",
     findMyCar: "ابحث عن سيارتي",
     sellTradeIn: "بيع / استبدال",
     buyForMe: "الشراء نيابة عنك",

@@ -2,6 +2,8 @@ import { createClient } from "@/lib/supabase/server";
 import { getStripe } from "@/lib/stripe";
 import { getCar } from "./cars";
 import { getPowersport } from "./powersports";
+import { getCargoTruck } from "./cargoTrucks";
+import { getYacht } from "./yachts";
 import type { Order, OrderRequest, OrderConfirmation, PaymentStatus, ShippingAddress } from "@/types";
 
 type OrderRow = {
@@ -46,7 +48,11 @@ export async function createOrder(request: OrderRequest): Promise<OrderConfirmat
   if (!userData.user) throw new Error("You must be signed in to place an order.");
 
   const car = await getCar(request.vehicleId);
-  const vehicle = car ?? (await getPowersport(request.vehicleId));
+  const vehicle =
+    car ??
+    (await getPowersport(request.vehicleId)) ??
+    (await getCargoTruck(request.vehicleId)) ??
+    (await getYacht(request.vehicleId));
 
   if (!vehicle) {
     throw new Error(`Vehicle not found: ${request.vehicleId}`);

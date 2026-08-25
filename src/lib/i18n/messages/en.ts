@@ -4,6 +4,8 @@ export const en: Messages = {
   nav: {
     cars: "Cars",
     powersports: "Powersports",
+    cargoTrucks: "Cargo Trucks",
+    yachts: "Yachts",
     findMyCar: "Find My Car",
     sellTradeIn: "Sell / Trade-In",
     buyForMe: "Buy For Me",

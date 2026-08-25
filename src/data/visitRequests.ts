@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 
 export interface VisitRequestInput {
   vehicleId: string;
-  vehicleType: "car" | "powersport";
+  vehicleType: "car" | "powersport" | "cargo-truck" | "yacht";
   vehicleSummary: string;
   preferredDate: string;
   preferredTime?: string;
@@ -41,7 +41,7 @@ function mapVisitRequest(row: VisitRequestRow): VisitRequest {
   return {
     id: row.id,
     vehicleId: row.vehicle_id,
-    vehicleType: row.vehicle_type as "car" | "powersport",
+    vehicleType: row.vehicle_type as VisitRequestInput["vehicleType"],
     vehicleSummary: row.vehicle_summary,
     preferredDate: row.preferred_date,
     preferredTime: row.preferred_time ?? undefined,

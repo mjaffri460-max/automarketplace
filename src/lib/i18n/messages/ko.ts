@@ -4,6 +4,8 @@ export const ko: Messages = {
   nav: {
     cars: "자동차",
     powersports: "모터스포츠",
+    cargoTrucks: "화물 트럭",
+    yachts: "요트",
     findMyCar: "내 차 찾기",
     sellTradeIn: "판매/트레이드인",
     buyForMe: "대신 구매",

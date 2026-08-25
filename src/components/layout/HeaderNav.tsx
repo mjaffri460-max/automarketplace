@@ -11,6 +11,8 @@ export function HeaderNav({ isSignedIn }: { isSignedIn: boolean }) {
   const navLinks = [
     { href: "/cars", label: messages.nav.cars },
     { href: "/powersports", label: messages.nav.powersports },
+    { href: "/cargo-trucks", label: messages.nav.cargoTrucks },
+    { href: "/yachts", label: messages.nav.yachts },
     { href: "/find-my-car", label: messages.nav.findMyCar },
     { href: "/sell", label: messages.nav.sellTradeIn },
     { href: "/buy-for-me", label: messages.nav.buyForMe },

@@ -4,6 +4,8 @@ import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getCar } from "@/data/cars";
 import { getPowersport } from "@/data/powersports";
+import { getCargoTruck } from "@/data/cargoTrucks";
+import { getYacht } from "@/data/yachts";
 import { Reveal } from "@/components/motion/Reveal";
 import { VisitBookingForm } from "@/components/vehicles/VisitBookingForm";
 import { submitVisitRequest } from "./actions";
@@ -17,7 +19,12 @@ export default async function VisitPage({ params, searchParams }: VisitPageProps
   const { vehicleType, vehicleId } = await params;
   const { requested, travel } = await searchParams;
 
-  if (vehicleType !== "car" && vehicleType !== "powersport") {
+  if (
+    vehicleType !== "car" &&
+    vehicleType !== "powersport" &&
+    vehicleType !== "cargo-truck" &&
+    vehicleType !== "yacht"
+  ) {
     notFound();
   }
 
@@ -27,7 +34,14 @@ export default async function VisitPage({ params, searchParams }: VisitPageProps
     redirect("/login");
   }
 
-  const vehicle = vehicleType === "car" ? await getCar(vehicleId) : await getPowersport(vehicleId);
+  const vehicle =
+    vehicleType === "car"
+      ? await getCar(vehicleId)
+      : vehicleType === "powersport"
+        ? await getPowersport(vehicleId)
+        : vehicleType === "cargo-truck"
+          ? await getCargoTruck(vehicleId)
+          : await getYacht(vehicleId);
 
   if (!vehicle) {
     notFound();
@@ -35,7 +49,13 @@ export default async function VisitPage({ params, searchParams }: VisitPageProps
 
   const vehicleSummary = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
   const boundAction = submitVisitRequest.bind(null, vehicleId, vehicleType, vehicleSummary);
-  const detailHref = vehicleType === "car" ? `/cars/${vehicleId}` : `/powersports/${vehicleId}`;
+  const detailHrefMap: Record<string, string> = {
+    car: `/cars/${vehicleId}`,
+    powersport: `/powersports/${vehicleId}`,
+    "cargo-truck": `/cargo-trucks/${vehicleId}`,
+    yacht: `/yachts/${vehicleId}`,
+  };
+  const detailHref = detailHrefMap[vehicleType];
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">

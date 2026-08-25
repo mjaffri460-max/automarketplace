@@ -83,6 +83,81 @@ export interface PowersportFilters {
   query?: string;
 }
 
+export type CargoTruckType =
+  | "box-truck"
+  | "flatbed"
+  | "semi-tractor"
+  | "refrigerated"
+  | "tanker"
+  | "dump-truck";
+
+export interface CargoTruck {
+  id: string;
+  make: string;
+  model: string;
+  year: number;
+  truckType: CargoTruckType;
+  price: number;
+  currency: string;
+  condition: CarCondition;
+  mileage: number;
+  fuelType: FuelType;
+  transmission: Transmission;
+  cargoCapacityLbs: number;
+  axleConfig: string;
+  color: string;
+  location: string;
+  country: string;
+  imageUrl: string;
+  images: string[];
+  description: string;
+  features: string[];
+  estimatedShippingDays: number;
+  shippingCost: number;
+  competitorPrices: CompetitorPrice[];
+}
+
+export interface CargoTruckFilters {
+  truckType?: CargoTruckType;
+  query?: string;
+  maxPrice?: number;
+}
+
+export type YachtType = "motor-yacht" | "sailing-yacht" | "catamaran" | "sport-fisher" | "superyacht";
+export type HullMaterial = "fiberglass" | "aluminum" | "steel" | "wood";
+
+export interface Yacht {
+  id: string;
+  make: string;
+  model: string;
+  year: number;
+  yachtType: YachtType;
+  price: number;
+  currency: string;
+  condition: CarCondition;
+  engineHours: number;
+  lengthFt: number;
+  cabins: number;
+  fuelType: FuelType;
+  hullMaterial: HullMaterial;
+  color: string;
+  location: string;
+  country: string;
+  imageUrl: string;
+  images: string[];
+  description: string;
+  features: string[];
+  estimatedShippingDays: number;
+  shippingCost: number;
+  competitorPrices: CompetitorPrice[];
+}
+
+export interface YachtFilters {
+  yachtType?: YachtType;
+  query?: string;
+  maxPrice?: number;
+}
+
 export type ServiceCategory = "warranty" | "maintenance" | "insurance" | "detailing";
 
 export interface Service {

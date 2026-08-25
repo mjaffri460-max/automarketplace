@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getCar } from "@/data/cars";
 import { getPowersport } from "@/data/powersports";
+import { getCargoTruck } from "@/data/cargoTrucks";
+import { getYacht } from "@/data/yachts";
 import { getOrder } from "@/data/orders";
 import { createClient } from "@/lib/supabase/server";
 import { OrderSummary } from "@/components/order/OrderSummary";
@@ -20,13 +22,22 @@ export default async function OrderPage({ params, searchParams }: OrderPageProps
   const { id } = await params;
   const { orderId } = await searchParams;
   const car = await getCar(id);
-  const vehicle = car ?? (await getPowersport(id));
+  const powersport = car ? null : await getPowersport(id);
+  const cargoTruck = car || powersport ? null : await getCargoTruck(id);
+  const yacht = car || powersport || cargoTruck ? null : await getYacht(id);
+  const vehicle = car ?? powersport ?? cargoTruck ?? yacht;
 
   if (!vehicle) {
     notFound();
   }
 
-  const detailHref = car ? `/cars/${vehicle.id}` : `/powersports/${vehicle.id}`;
+  const detailHref = car
+    ? `/cars/${vehicle.id}`
+    : powersport
+      ? `/powersports/${vehicle.id}`
+      : cargoTruck
+        ? `/cargo-trucks/${vehicle.id}`
+        : `/yachts/${vehicle.id}`;
 
   const supabase = await createClient();
   const { data: userData } = await supabase.auth.getUser();

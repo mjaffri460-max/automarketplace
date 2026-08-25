@@ -23,6 +23,12 @@ export function Footer() {
               <Link href="/powersports" className="text-muted-foreground hover:text-foreground">
                 {messages.footer.powersports}
               </Link>
+              <Link href="/cargo-trucks" className="text-muted-foreground hover:text-foreground">
+                {messages.nav.cargoTrucks}
+              </Link>
+              <Link href="/yachts" className="text-muted-foreground hover:text-foreground">
+                {messages.nav.yachts}
+              </Link>
               <Link href="/services" className="text-muted-foreground hover:text-foreground">
                 {messages.footer.services}
               </Link>

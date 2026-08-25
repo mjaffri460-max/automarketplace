@@ -1,11 +1,11 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { createVisitRequest } from "@/data/visitRequests";
+import { createVisitRequest, type VisitRequestInput } from "@/data/visitRequests";
 
 export async function submitVisitRequest(
   vehicleId: string,
-  vehicleType: "car" | "powersport",
+  vehicleType: VisitRequestInput["vehicleType"],
   vehicleSummary: string,
   formData: FormData
 ) {
